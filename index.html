@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兩岸市場進入地圖 | 陳執董 Jump</title>
+<meta name="description" content="台灣老闆的兩岸市場進入地圖：8 個零件一頁看完，從症狀往下拼，找出現在卡住的那一個環節。整理自陳執董 10 年 BNI／JCI／兩岸孵化基地實戰。">
+<meta property="og:title" content="兩岸市場進入地圖 | 陳執董 Jump">
+<meta property="og:description" content="台灣老闆的兩岸市場進入地圖：8 個零件一頁看完，找出現在該修的那一個環節。">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Rammetto+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#ffc942; --coral:#ff6b4a; --teal:#4fc1a6; --sky:#8fd3f4; --rose:#f7a8c4;
+  --navy:#17335c; --cream:#fff6e8; --ink:#161616; --paper:#ffffff; --muted:#5a5a5a;
+  --line:3px solid var(--ink);
+  --display:"Rammetto One","Noto Sans TC",system-ui,sans-serif;
+  --body:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:500;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,h4,p,li,span,a,b,small,button,summary{font-family:inherit}
+a{color:inherit}
+svg{display:block;max-width:100%}
+ul,ol{list-style:none}
+b{font-weight:900}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+[hidden]{display:none!important}
+.g-pos{--c:var(--sky)} .g-bridge{--c:var(--rose)} .g-pilot{--c:var(--gold)} .g-scale{--c:var(--teal)}
+
+/* ticker */
+.ticker{background:var(--coral);border-bottom:var(--line);overflow:hidden;white-space:nowrap;font-size:13px;font-weight:700;padding:6px 0;color:#fff}
+.ticker__track{display:inline-flex;gap:48px;animation:slide 32s linear infinite;padding-left:24px}
+.ticker__track span::after{content:"✦";margin-left:48px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker__track{animation:none}}
+
+/* header */
+header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px clamp(16px,4vw,48px);border-bottom:var(--line);position:sticky;top:0;z-index:40}
+.top__tag{font-weight:700;font-size:13px}
+.logo{text-align:center;text-decoration:none;line-height:1}
+.logo small{display:block;font-family:var(--display);font-size:9px;letter-spacing:.12em;margin-bottom:4px}
+.logo b{font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;display:inline-block}
+.logo b em{font-style:normal;font-family:var(--display);font-size:.7em;background:var(--gold);border:2px solid var(--ink);border-radius:8px;padding:0 6px;margin-left:4px;display:inline-block;transform:rotate(4deg)}
+.top__nav{justify-self:end;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.pill{display:inline-flex;align-items:center;gap:4px;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700;text-decoration:none;background:#fff;transition:transform .15s;white-space:nowrap}
+.pill:hover{transform:translateY(-2px)}
+.pill--dark{background:var(--ink);color:#fff}
+
+/* hero */
+.hero{background:var(--sky);padding:0 clamp(16px,4vw,48px) 48px}
+.hero__stage{max-width:1280px;margin:0 auto;border:var(--line);border-radius:6px;overflow:hidden;background:var(--sky)}
+.intro{text-align:center;padding-top:48px;padding-bottom:20px}
+.kicker{display:inline-block;font-family:var(--display);font-size:11px;letter-spacing:.1em;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:4px 14px}
+.intro h1{font-weight:900;font-size:clamp(26px,4.2vw,46px);line-height:1.3;margin:16px auto 0;max-width:820px}
+.intro h1 .en{display:block;font-family:var(--display);font-weight:400;font-size:clamp(18px,2.6vw,26px);color:var(--coral);margin-bottom:8px}
+.intro h1 mark{background:linear-gradient(transparent 58%,var(--gold) 58%,var(--gold) 92%,transparent 92%);color:inherit}
+.lede{font-size:clamp(14px,1.6vw,16px);margin:16px auto 0;max-width:38em}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;justify-content:center}
+.stat{background:#fff;border:var(--line);border-radius:14px;padding:8px 16px;box-shadow:4px 4px 0 var(--ink);text-align:center;min-width:92px}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:19px;line-height:1.2}
+.stat span{font-size:11px;font-weight:700}
+
+/* 8-part map */
+.mapbox{max-width:1280px;margin:0 auto;padding:30px clamp(16px,4vw,40px) 44px;display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center}
+.avatarwrap{text-align:center}
+.avatar{width:220px;height:220px;margin:0 auto;border-radius:50%;background:var(--cream);border:var(--line);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.avatar svg{width:100%;height:100%}
+.avatarwrap .cap{margin-top:14px;display:inline-block;background:var(--ink);color:#fff;font-weight:900;font-size:13px;border-radius:999px;padding:7px 16px}
+.boxpanel{background:#fff;border:var(--line);border-radius:18px;box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+.boxpanel-hd{background:var(--cream);border-bottom:var(--line);padding:14px 18px;font-weight:900;font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.boxpanel-hd span{font-weight:700;font-size:13px;color:var(--muted)}
+.map8{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.map8 a{display:block;text-decoration:none;color:inherit;padding:16px 10px;text-align:center;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);background:#fff;transition:background .15s,transform .15s}
+.map8 a:nth-child(4n){border-right:none}
+.map8 a:nth-child(n+5){border-bottom:none}
+.map8 a:hover{background:var(--c);transform:translateY(-2px)}
+.map8 .num{display:inline-block;width:26px;height:26px;border-radius:50%;background:var(--c);border:2px solid var(--ink);font-family:var(--display);font-size:12px;display:grid;place-items:center;margin:0 auto 6px}
+.map8 b{display:block;font-size:14.5px;line-height:1.3}
+.flowline{padding:12px 18px;border-top:2px dashed var(--ink);font-size:12.5px;font-weight:700;text-align:center;background:var(--cream)}
+.hero__cta{text-align:center;margin-top:-20px;position:relative}
+.hero__cta a{display:inline-block;font-size:14px;font-weight:900;padding:10px 28px;border:3px solid var(--ink);border-radius:999px;background:var(--gold);text-decoration:none;box-shadow:4px 4px 0 var(--ink)}
+@media (max-width:860px){.mapbox{grid-template-columns:1fr}.avatar{width:160px;height:160px}}
+@media (max-width:640px){.map8{grid-template-columns:repeat(2,1fr)}.map8 a:nth-child(2n){border-right:none}.map8 a:nth-child(n+5){border-bottom:2px solid var(--ink)}.map8 a:nth-child(7),.map8 a:nth-child(8){border-bottom:none}}
+
+/* section heads */
+.sec{padding:64px clamp(16px,4vw,48px)}
+.wrap{max-width:1140px;margin:0 auto}
+.eyebrow{display:block;text-align:center;font-family:var(--display);font-size:10px;letter-spacing:.14em}
+.eyebrow::after{content:"";display:block;width:84px;height:2px;background:var(--ink);margin:6px auto 0}
+.h-big{text-align:center;font-family:var(--display);font-weight:400;font-size:clamp(30px,5.4vw,50px);line-height:1.15;margin-top:10px}
+.h-sub{text-align:center;font-weight:900;font-size:clamp(16px,2.2vw,19px);margin-top:6px}
+.h-note{text-align:center;font-size:13.5px;color:var(--muted);margin:6px auto 0;max-width:40em}
+.sec-body{margin-top:36px}
+.bg-cream{background:var(--cream);border-top:var(--line);border-bottom:var(--line)}
+.bg-teal{background:var(--teal);border-top:var(--line);border-bottom:var(--line)}
+.bg-rose{background:var(--rose);border-top:var(--line);border-bottom:var(--line)}
+
+/* diagnose */
+.diag{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.schips{display:flex;flex-wrap:wrap;gap:8px}
+.schip{font-size:14px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;text-align:left;transition:transform .15s}
+.schip:hover{transform:translateY(-2px)}
+.schip[aria-pressed="true"]{background:var(--ink);color:#fff}
+.result{position:sticky;top:90px;background:#fff;border:var(--line);border-radius:22px;padding:22px;box-shadow:8px 8px 0 var(--ink)}
+.result .q{font-family:var(--display);font-size:11px;letter-spacing:.1em;color:var(--coral)}
+.result h3{margin:6px 0 12px;font-weight:900;font-size:22px;line-height:1.35}
+.result .b{display:inline-block;font-size:12.5px;font-weight:900;background:var(--c,var(--gold));border:2px solid var(--ink);padding:3px 12px;border-radius:999px}
+.result .f{font-size:15.5px;margin:14px 0 16px}
+.result .act{background:var(--cream);border:2.5px dashed var(--ink);border-radius:14px;padding:12px 14px;margin:0 0 16px}
+.result .act b{display:inline-block;font-size:12px;font-weight:900;background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:1px 10px;margin-bottom:6px}
+.result .act p{margin:0;font-size:14.5px;line-height:1.7}
+.result a.go{display:inline-block;font-weight:900;font-size:13.5px;text-decoration:none;background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px}
+@media (max-width:860px){.diag{grid-template-columns:1fr}.result{position:static}}
+
+/* 8 cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.card{background:#fff;border:var(--line);border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:90px}
+.card-hd{background:var(--c);border-bottom:var(--line);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.tag{align-self:flex-start;font-size:11.5px;font-weight:900;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 10px}
+.card h3 .en{display:block;font-family:var(--display);font-weight:400;font-size:19px;line-height:1.2}
+.card h3 .zh{display:block;font-weight:900;font-size:15px;margin-top:2px}
+.card .one{margin:14px 18px 0;font-size:15px;font-weight:700;line-height:1.7}
+.card .pts{display:grid;gap:7px;font-size:14px;line-height:1.6;margin:12px 18px 0}
+.card .pts li{position:relative;padding-left:18px}
+.card .pts li::before{content:"";position:absolute;left:1px;top:.5em;width:9px;height:9px;border-radius:50%;border:2px solid var(--ink);background:var(--c)}
+.card .num{margin:12px 18px 0;display:flex;flex-direction:column;gap:2px;background:var(--cream);border:2px dashed var(--ink);border-radius:12px;padding:9px 12px}
+.card .num b{font-family:var(--display);font-weight:400;font-size:19px;color:var(--coral)}
+.card .num span{font-size:12px;font-weight:700}
+.card .trap{margin:12px 18px 0;font-size:13px;line-height:1.6;padding:9px 11px;background:#ffe9e4;border-left:5px solid var(--coral);border-radius:4px}
+.card .trap b{display:inline-block;font-size:11px;font-weight:900;color:#fff;background:var(--coral);border-radius:4px;padding:0 6px;margin-right:6px}
+.card details{margin:12px 18px 16px;margin-top:auto}
+.card summary{cursor:pointer;font-size:13px;font-weight:900;list-style:none;display:inline-flex;align-items:center;gap:6px;border:2px solid var(--ink);border-radius:999px;padding:4px 13px;background:#fff}
+.card summary::-webkit-details-marker{display:none}
+.card summary::before{content:"+";font-family:var(--display)}
+.card details[open] summary{background:var(--c)}
+.card details[open] summary::before{content:"–"}
+.card details ul{margin-top:10px;display:grid;gap:6px;font-size:13px}
+.card details li{padding-left:14px;position:relative}
+.card details li::before{content:"·";position:absolute;left:0;font-weight:900}
+
+/* rules & numbers */
+.two{display:grid;grid-template-columns:1.05fr 1fr;gap:26px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.panel{background:#fff;border:var(--line);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:22px}
+.panel>h3{font-weight:900;font-size:19px;margin-bottom:8px}
+.rules li{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;padding:11px 0;border-bottom:2px dashed #cfcfcf}
+.rules li:last-child{border-bottom:0}
+.rn{font-family:var(--display);font-size:11px;width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);background:var(--gold);display:grid;place-items:center}
+.rules b{display:block;font-size:15px;line-height:1.45}
+.rules span{font-size:13px;color:var(--muted)}
+.nrow{display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center;padding:11px 0;border-bottom:2px dashed #cfcfcf}
+.nrow:last-child{border-bottom:0}
+.nrow b{font-family:var(--display);font-weight:400;font-size:16px}
+.nrow span{font-size:13px}
+
+/* CTA banner */
+.ctaband{max-width:960px;margin:0 auto;background:#fff;border:var(--line);border-radius:26px;box-shadow:8px 8px 0 var(--ink);padding:30px;text-align:center}
+.ctaband h3{font-weight:900;font-size:22px;line-height:1.4}
+.ctaband p{font-size:14.5px;margin-top:8px;color:var(--muted)}
+.ctaband .perks{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0}
+.ctaband .perk{font-size:13px;font-weight:900;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:6px 14px}
+.ctaband a.go{display:inline-block;margin-top:4px;font-weight:900;font-size:16px;text-decoration:none;background:#06c755;color:#fff;border:var(--line);border-radius:999px;padding:12px 34px;box-shadow:4px 4px 0 var(--ink)}
+
+/* about */
+.whois__top{max-width:900px;margin:0 auto;display:grid;grid-template-columns:170px 1fr;gap:28px;align-items:center}
+.whois__ph{aspect-ratio:1;border-radius:50%;border:var(--line);overflow:hidden;background:var(--gold);box-shadow:8px 8px 0 var(--ink)}
+.whois__top h3{font-weight:900;font-size:22px;line-height:1.4}
+.whois__top p{margin-top:10px;font-size:15px}
+.whois__grid{max-width:960px;margin:32px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.whois__card{background:#fff;border:var(--line);border-radius:14px;padding:15px 15px 17px;box-shadow:5px 5px 0 var(--ink)}
+.whois__card small{display:inline-block;font-family:var(--display);font-size:11px;background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:0 10px}
+.whois__card h4{font-size:15px;font-weight:900;line-height:1.45;margin-top:9px}
+.whois__card p{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+@media (max-width:860px){.whois__grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.whois__top{grid-template-columns:1fr;text-align:center}.whois__ph{width:140px;margin:0 auto}}
+
+footer{background:var(--ink);color:#e9e9e9;padding:32px clamp(16px,4vw,48px);font-size:12px;text-align:center;line-height:1.8}
+footer b{color:#fff}
+.totop{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:var(--gold);border:var(--line);display:grid;place-items:center;text-decoration:none;box-shadow:4px 4px 0 var(--ink);opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+.totop.on{opacity:1;pointer-events:auto}
+
+@media (max-width:720px){
+  header.top{grid-template-columns:1fr auto;gap:8px}.top__tag{display:none}.logo{text-align:left}
+  .top__nav .pill:not(.pill--dark){display:none}
+  .sec{padding:48px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker"><div class="ticker__track">
+<span>台灣老闆的兩岸市場進入地圖</span><span>從症狀往下拼，找出現在該修的那一個環節</span><span>整理自陳執董 10 年 BNI／JCI／兩岸孵化基地實戰</span>
+</div></div>
+
+<header class="top">
+  <div class="top__tag">生意零件箱｜兩岸市場進入</div>
+  <a class="logo" href="#top">
+    <small>JUMP CHEN · MARKET MAP</small>
+    <b>兩岸市場地圖<em>8</em></b>
+  </a>
+  <nav class="top__nav">
+    <a class="pill" href="#diagnose">症狀診斷</a>
+    <a class="pill" href="#cards">8 張卡</a>
+    <a class="pill" href="#rules">鐵律</a>
+    <a class="pill pill--dark" href="#about">陳執董是誰</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="hero__stage">
+    <div class="intro">
+      <span class="kicker">JUMP CHEN · 8 PARTS MARKET MAP</span>
+      <h1><span class="en">Cross-Strait Market Entry Map</span>台灣老闆的<mark>兩岸市場進入地圖</mark></h1>
+      <p class="lede">從你現在卡住的症狀往下拼，找出現在該修的那一個零件——不是你不夠努力，是還沒找對該修的環節。整理自陳執董 10 年 BNI／JCI／獅子會人脈系統實戰，與武漢、廈門、成都三地孵化基地的實際對接經驗。</p>
+      <div class="stats">
+        <div class="stat"><b>8</b><span>個零件，從定位到擴張</span></div>
+        <div class="stat"><b>10年+</b><span>商會人脈系統實戰</span></div>
+        <div class="stat"><b>3地</b><span>孵化基地直接對接</span></div>
+        <div class="stat"><b>1個</b><span>瓶頸，一次只修一個</span></div>
+      </div>
+    </div>
+
+    <div class="mapbox">
+      <div class="avatarwrap">
+        <div class="avatar">
+          <svg viewBox="0 0 200 200" role="img" aria-label="陳執董 Jump 插畫頭像">
+            <rect width="200" height="200" fill="#fff6e8"/>
+            <g transform="translate(100 112)">
+              <path d="M-34 44 Q-40 -6 0 -10 Q40 -6 34 44 Z" fill="#17335c"/>
+              <path d="M-16 40 L0 58 L16 40 L10 30 L-10 30 Z" fill="#fff"/>
+              <path d="M-5 32 L0 44 L5 32 Z" fill="#ff6b4a"/>
+              <circle cx="0" cy="-34" r="38" fill="#f2c29b"/>
+              <path d="M-38 -40 Q-40 -74 0 -76 Q40 -74 38 -40 Q30 -58 0 -58 Q-30 -58 -38 -40 Z" fill="#241a12"/>
+              <ellipse cx="-14" cy="-34" rx="4.5" ry="5.5" fill="#161616"/>
+              <ellipse cx="14" cy="-34" rx="4.5" ry="5.5" fill="#161616"/>
+              <path d="M-20 -46 Q-14 -50 -8 -46" fill="none" stroke="#161616" stroke-width="3" stroke-linecap="round"/>
+              <path d="M8 -46 Q14 -50 20 -46" fill="none" stroke="#161616" stroke-width="3" stroke-linecap="round"/>
+              <path d="M-13 -16 Q0 -8 13 -16" fill="none" stroke="#161616" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M-2 -28 Q0 -22 2 -28" fill="none" stroke="#c98a5e" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <span class="cap">陳執董 Jump</span>
+      </div>
+
+      <div class="boxpanel">
+        <div class="boxpanel-hd">生意零件箱｜一次只修一個 <span>定位 → 信任狀 → 引薦網 → 在地夥伴 → 試點 → 基礎設施 → 現金流 → 複製</span></div>
+        <div class="map8">
+          <a class="g-pos" href="#c1"><span class="num">①</span><b>定位</b></a>
+          <a class="g-pos" href="#c2"><span class="num">②</span><b>信任狀</b></a>
+          <a class="g-bridge" href="#c3"><span class="num">③</span><b>引薦網</b></a>
+          <a class="g-bridge" href="#c4"><span class="num">④</span><b>在地夥伴</b></a>
+          <a class="g-pilot" href="#c5"><span class="num">⑤</span><b>試點驗證</b></a>
+          <a class="g-pilot" href="#c6"><span class="num">⑥</span><b>基礎設施</b></a>
+          <a class="g-scale" href="#c7"><span class="num">⑦</span><b>現金流</b></a>
+          <a class="g-scale" href="#c8"><span class="num">⑧</span><b>複製擴張</b></a>
+        </div>
+        <div class="flowline">定位 → 信任狀 → 引薦網 → 在地夥伴 → 試點驗證 → 基礎設施 → 現金流 → 複製擴張</div>
+      </div>
+    </div>
+
+    <div class="hero__cta"><a href="#diagnose">先做瓶頸診斷 ↓</a></div>
+  </div>
+</section>
+
+<section class="sec" id="diagnose">
+  <div class="wrap">
+    <span class="eyebrow">01 · DIAGNOSE</span>
+    <h2 class="h-big">Diagnose</h2>
+    <p class="h-sub">你的市場進入卡在哪個零件？</p>
+    <p class="h-note">從你現在遇到的症狀開始，一路往下接：它對應哪個框架、屬於哪個環節。點一下就會跳到對應的卡片，你不用自己猜。</p>
+
+    <div class="sec-body diag">
+      <div class="schips" id="schipList" role="group" aria-label="常見症狀"></div>
+
+      <div class="result" id="resultPanel">
+        <span class="q">RESULT</span>
+        <h3 id="resTitle">先點一個症狀</h3>
+        <span class="b" id="resBadge">—</span>
+        <p class="f" id="resFacet">右邊會出現對應的零件、診斷與下一步動作。</p>
+        <div class="act">
+          <b>今天就做這件事</b>
+          <p id="resAction">點選左邊任一個你現在的症狀，開始診斷。</p>
+        </div>
+        <a class="go" id="resLink" href="#cards">翻到對應卡片 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-cream">
+  <div class="sec wrap" id="cards">
+    <span class="eyebrow">02 · THE 8 PARTS</span>
+    <h2 class="h-big">The Map</h2>
+    <p class="h-sub">8 個零件，排成一條線</p>
+    <p class="h-note">每張卡只留一句話核心、幾個重點、一個關鍵數字，和一個常見地雷。點「遇到這些情況怎麼用」看實際對應的症狀。</p>
+
+    <div class="sec-body cards" id="cardGrid"></div>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="wrap">
+    <span class="eyebrow">03 · RULES</span>
+    <h2 class="h-big">Rules</h2>
+    <p class="h-sub">跨框架鐵律與關鍵數字</p>
+
+    <div class="sec-body two">
+      <div class="panel">
+        <h3>10 條鐵律</h3>
+        <ul class="rules" id="ruleList"></ul>
+      </div>
+      <div class="panel">
+        <h3>數字速查</h3>
+        <ul id="numList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-rose">
+  <div class="sec wrap">
+    <span class="eyebrow">04 · JOIN</span>
+    <h2 class="h-big">Community</h2>
+    <p class="h-sub">診斷完，不用自己一個人想</p>
+
+    <div class="sec-body ctaband">
+      <h3>加入「陳執董｜商業社群」LINE 群</h3>
+      <p>兩岸商務討論、經驗分享，把你現在卡住的零件丟進來，一起找下一步。</p>
+      <div class="perks">
+        <span class="perk">兩岸市場實戰案例</span>
+        <span class="perk">商會／人脈系統交流</span>
+        <span class="perk">孵化基地對接資訊</span>
+        <span class="perk">不定期 Podcast 來賓邀約</span>
+      </div>
+      <a class="go" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 社群 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <span class="eyebrow">05 · WHO'S JUMP</span>
+    <h2 class="h-big">Who's Jump?</h2>
+    <p class="h-sub">這張地圖整理的，是誰的方法</p>
+
+    <div class="sec-body whois__top">
+      <div class="whois__ph">
+        <svg viewBox="0 0 200 200" role="img" aria-label="陳執董 Jump">
+          <rect width="200" height="200" fill="#ffc942"/>
+          <g transform="translate(100 112)">
+            <path d="M-34 44 Q-40 -6 0 -10 Q40 -6 34 44 Z" fill="#17335c"/>
+            <path d="M-16 40 L0 58 L16 40 L10 30 L-10 30 Z" fill="#fff"/>
+            <path d="M-5 32 L0 44 L5 32 Z" fill="#ff6b4a"/>
+            <circle cx="0" cy="-34" r="38" fill="#f2c29b"/>
+            <path d="M-38 -40 Q-40 -74 0 -76 Q40 -74 38 -40 Q30 -58 0 -58 Q-30 -58 -38 -40 Z" fill="#241a12"/>
+            <ellipse cx="-14" cy="-34" rx="4.5" ry="5.5" fill="#161616"/>
+            <ellipse cx="14" cy="-34" rx="4.5" ry="5.5" fill="#161616"/>
+            <path d="M-13 -16 Q0 -8 13 -16" fill="none" stroke="#161616" stroke-width="3.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <h3>陳執董 Jump：從 BNI 分會到兩岸建橋者</h3>
+        <p>台灣行銷人協會創會理事長、BNC 國際人脈商業執行董事。從 2012 年投入 BNI 高雄南區，獨立建立多個分會，到現在經營建橋雲智科技（武漢、廈門、成都），他最值得學的地方，是把「人脈引薦系統」拆成一套可複製的兩岸市場進入方法：先找卡住的零件，再決定要修信任狀、引薦網，還是在地夥伴。</p>
+      </div>
+    </div>
+
+    <div class="whois__grid">
+      <div class="whois__card"><small>START</small><h4>從 BNI 分會起家</h4><p>2012 年加入 BNI 高雄南區，會員期間共同建立 4 個分會，擔任董事顧問期間獨自建立第 5 個分會。</p></div>
+      <div class="whois__card"><small>ORG</small><h4>JCI、獅子會、行銷協會</h4><p>JCI 亞太地區發展委員會委員、高大精英國際獅子會會長、台灣行銷人協會創會理事長。</p></div>
+      <div class="whois__card"><small>NOW</small><h4>建橋雲智科技</h4><p>現任武漢、廈門、成都三地建橋雲智科技執行董事，直接對接當地青創孵化基地。</p></div>
+      <div class="whois__card"><small>HONOR</small><h4>兩岸青創榮譽</h4><p>2025 成都大灣區台青創業引領人、武漢金銀湖杯海峽兩岸青年創新創業大賽、成都兩岸眾城台灣青年城市發展聯盟高雄代表。</p></div>
+    </div>
+    <p class="h-note" style="margin-top:22px">本頁為陳執董個人經驗與方法論整理，內容為學習與交流性質，不構成投資或法律建議。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  兩岸市場進入地圖｜陳執董 Jump · 由 BNC 國際人脈商業建橋網絡整理<br>
+  本頁為個人經驗整理，內容僅供學習交流參考，不構成投資、法律或財稅建議。
+</footer>
+
+<a class="totop" id="totop" href="#top" aria-label="回到頂端">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#161616" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</a>
+
+<script>
+(() => {
+const $ = s => document.querySelector(s), $$ = s => Array.from(document.querySelectorAll(s));
+
+const PARTS = [
+  {id:'c1', g:'g-pos', no:'①', en:'Positioning', zh:'定位', one:'講不出你解決誰的什麼問題，市場不會主動幫你翻譯。',
+    pts:['買家是誰：企業主/品牌方，還是個人創業者？','解決的具體問題：不是「拓展市場」，是哪一個卡住的環節？','跟別人不一樣的地方：為什麼是你，不是別的管道？'],
+    num:{v:'1句話', l:'電梯簡報要在一句話內讓對方聽懂你是做什麼的'},
+    trap:'「我什麼都能做」等於什麼都不會被記住——定位越窄，越容易被轉介紹。',
+    use:['自我介紹講半天，對方還是不知道你在做什麼','參加很多場合，但沒人主動幫你轉介紹']},
+  {id:'c2', g:'g-pos', no:'②', en:'Credibility', zh:'信任狀', one:'沒有拿得出手的背書，關係再多也只是點頭之交。',
+    pts:['身份背書：學歷、認證、組織頭銜，能不能一句話講完','實績背書：做過什麼、帶出什麼結果，有沒有案例','露出頻率：對方看得到你在不在場，比完美簡報重要'],
+    num:{v:'3件', l:'建議隨身準備 3 件可驗證的背書（頭銜/證照/案例）'},
+    trap:'證照越多不等於越可信——對方只記得跟他相關的那一件。',
+    use:['證照/經歷攤出來，對方還是不太信任','被當成「又一個來推銷的」，進不了下一步對話']},
+  {id:'c3', g:'g-bridge', no:'③', en:'Referral Network', zh:'引薦網', one:'兩岸市場靠陌生開發太慢，靠系統化引薦才有槓桿。',
+    pts:['加入有結構的商會/協會系統，而不是到處交換名片','用「Givers Gain」邏輯：先幫別人轉介紹，才換得到轉介紹','固定出席、固定分享近況，讓系統記得你在找什麼'],
+    num:{v:'10倍', l:'系統化引薦成交速度，粗估比陌生開發快上一個量級'},
+    trap:'只索取不貢獻的人，很快會被系統邊緣化——引薦是互惠，不是單向領取。',
+    use:['對岸人脈都是點頭之交，沒人真的幫忙','參加很多商會活動，但沒有變成真實合作']},
+  {id:'c4', g:'g-bridge', no:'④', en:'Local Partner', zh:'在地夥伴', one:'落地執行靠的是人，不是你以為的那份合約。',
+    pts:['找窗口要看「能不能幫你擋麻煩」，不是職稱多大','先小額合作驗證對方的執行力，再談長期','溝通落差要靠在地夥伴補，不要全靠自己翻譯文化'],
+    num:{v:'1位', l:'市場進入前期，先穩住 1 位可信賴的在地窗口就夠'},
+    trap:'找錯窗口比沒有窗口更糟——錯的人會把你的時間跟信任一起燒掉。',
+    use:['找到的在地窗口，後來發現根本不是對的人','事情卡在溝通落差，沒人幫忙在地協調']},
+  {id:'c5', g:'g-pilot', no:'⑤', en:'Pilot', zh:'試點驗證', one:'沒做小規模測試就 All-in，是賭注不是投資。',
+    pts:['先用一次考察/交流活動驗證市場反應','設定明確的驗證指標：有沒有人願意出下一步的承諾','驗證失敗要能快速喊停，不要硬撐沉沒成本'],
+    num:{v:'1次', l:'至少完成 1 次小規模考察或試點，再決定是否加碼'},
+    trap:'「反正都來了」心態最容易讓試點變成無上限投入——先設停損點。',
+    use:['去考察過很多次，但一直沒有真的開始','小規模測試都還沒做，就想直接大舉進入']},
+  {id:'c6', g:'g-pilot', no:'⑥', en:'Infrastructure', zh:'基礎設施', one:'公司、執照、資金進出沒打底，後面都是補破網。',
+    pts:['公司設立/執照流程，提早找對的窗口辦理','資金進出合規，避免後面被追溯補稅或罰款','把「誰負責辦什麼」列清楚，不要事到臨頭才找人'],
+    num:{v:'3地', l:'武漢、廈門、成都三地流程不完全相同，要分開確認'},
+    trap:'以為一個地方的流程可以套用到另一個城市——行政細節每個地方都不一樣。',
+    use:['公司/執照卡關，不知道該找誰辦','同樣的流程換個城市又要重新搞懂一次']},
+  {id:'c7', g:'g-scale', no:'⑦', en:'Cashflow', zh:'現金流', one:'東西賣出去不等於賺到錢，收不回來都是紙上富貴。',
+    pts:['收付款機制先談清楚，不要用口頭默契帶過','帳期與匯損要算進報價，不是事後才發現虧了','設定付款節點，分階段收款降低單次風險'],
+    num:{v:'3-4倍', l:'帳期拖越長，實際利潤被匯損和風險吃掉的幅度越大'},
+    trap:'為了成交先讓步付款條件——短期衝量，長期可能倒賠。',
+    use:['東西賣出去了，錢卻收不回來/拖很久','報價時沒算進匯損跟帳期，後來發現利潤被吃光']},
+  {id:'c8', g:'g-scale', no:'⑧', en:'Scale', zh:'複製擴張', one:'一個城市做熟，比同時攻三個城市更重要。',
+    pts:['把第一個城市的流程寫成清單，而不是只留在腦袋裡','複製靠方法論，不是靠找更多人力硬撐','換城市前，先確認基礎設施跟引薦網能不能重建'],
+    num:{v:'1個熟', l:'先把 1 個城市做到可複製，再談下一個'},
+    trap:'同時攻三個城市，結果三個都是半成品——資源分散是擴張最常見的地雷。',
+    use:['一個城市做起來了，換下個城市又從零開始','同時想攻好幾個城市，結果哪個都沒做深']},
+];
+
+const SYMPTOMS = [
+  {t:'自我介紹講半天，對方還是不知道你是做什麼的', to:'c1'},
+  {t:'參加很多場合，但沒人主動幫你轉介紹', to:'c1'},
+  {t:'證照/經歷攤出來，對方還是不太信任', to:'c2'},
+  {t:'被當成「又一個來推銷的」，進不了下一步對話', to:'c2'},
+  {t:'對岸人脈都是點頭之交，沒人真的幫忙', to:'c3'},
+  {t:'參加很多商會活動，但沒有變成真實合作', to:'c3'},
+  {t:'找到的在地窗口，後來發現根本不是對的人', to:'c4'},
+  {t:'事情卡在溝通落差，沒人幫忙在地協調', to:'c4'},
+  {t:'去考察過很多次，但一直沒有真的開始', to:'c5'},
+  {t:'小規模測試都還沒做，就想直接大舉進入', to:'c5'},
+  {t:'公司/執照卡關，不知道該找誰辦', to:'c6'},
+  {t:'東西賣出去了，錢卻收不回來/拖很久', to:'c7'},
+  {t:'一個城市做起來了，換下個城市又從零開始', to:'c8'},
+];
+
+const RULES = [
+  ['先建信任狀，才有資格談合作','沒有背書，關係再多也只是點頭之交'],
+  ['引薦比陌生開發快十倍','兩岸市場尤其吃「誰介紹你」，系統化引薦是槓桿'],
+  ['不先做小規模試點，就是賭注不是投資','設停損點，別讓「反正都來了」吃掉預算'],
+  ['在地夥伴決定你能走多快','找錯窗口比沒有窗口更糟糕'],
+  ['現金流機制沒談好，不要急著放量','帳期跟匯損要算進報價，不是事後才發現'],
+  ['一個城市做熟，比同時攻三個城市重要','資源分散是擴張最常見的地雷'],
+  ['商會系統是放大器，不是萬靈丹','你的產品本身要先站得住，系統才幫得上忙'],
+  ['露臉的頻率比完美的簡報重要','信任建立在「你在不在場」，不是一次完美提案'],
+  ['複製的前提是方法論化，不是找更多人力','把流程寫下來，而不是只留在腦袋裡'],
+  ['瓶頸永遠只有一個','先找到它，再談資源要怎麼分配'],
+];
+
+const NUMS = [
+  ['10年+','陳執董投入 BNI/JCI/獅子會人脈系統的實戰年資'],
+  ['4+1','單一分會期間共同建立 4 個分會，獨自再建立 1 個'],
+  ['3地','武漢、廈門、成都三地孵化基地直接對接'],
+  ['1個','任何時候，市場進入只有一個瓶頸要優先修'],
+];
+
+function renderMap(){
+  $('#cardGrid').innerHTML = PARTS.map(p => `
+  <article class="card ${p.g}" id="${p.id}">
+    <div class="card-hd">
+      <span class="tag">${p.no} PART</span>
+      <h3><span class="en">${p.en}</span><span class="zh">${p.zh}</span></h3>
+    </div>
+    <p class="one">${p.one}</p>
+    <ul class="pts">${p.pts.map(x=>`<li>${x}</li>`).join('')}</ul>
+    <div class="num"><b>${p.num.v}</b><span>${p.num.l}</span></div>
+    <div class="trap"><b>地雷</b>${p.trap}</div>
+    <details><summary>遇到這些情況怎麼用</summary>
+      <ul>${p.use.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </details>
+  </article>`).join('');
+
+  $('#schipList').innerHTML = SYMPTOMS.map((s,i)=>`<button class="schip" data-i="${i}" aria-pressed="false">${s.t}</button>`).join('');
+
+  $('#ruleList').innerHTML = RULES.map((r,i)=>`<li><span class="rn">${i+1}</span><div><b>${r[0]}</b><span>${r[1]}</span></div></li>`).join('');
+
+  $('#numList').innerHTML = NUMS.map(n=>`<li class="nrow"><b>${n[0]}</b><span>${n[1]}</span></li>`).join('');
+}
+renderMap();
+
+$$('.schip').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    $$('.schip').forEach(b=>b.setAttribute('aria-pressed','false'));
+    btn.setAttribute('aria-pressed','true');
+    const s = SYMPTOMS[+btn.dataset.i];
+    const part = PARTS.find(p=>p.id===s.to);
+    $('#resTitle').textContent = part.zh + '｜' + part.en;
+    $('#resBadge').textContent = s.to.toUpperCase() + ' · ' + part.zh;
+    $('#resBadge').style.setProperty('--c', `var(--${part.g.split('-')[1]==='pos'?'sky':part.g.split('-')[1]==='bridge'?'rose':part.g.split('-')[1]==='pilot'?'gold':'teal'})`);
+    $('#resFacet').textContent = part.one;
+    $('#resAction').textContent = '先處理「' + part.zh + '」：' + part.pts[0];
+    $('#resLink').href = '#' + s.to;
+  });
+});
+
+addEventListener('scroll', ()=>{
+  $('#totop').classList.toggle('on', scrollY > 600);
+});
+})();
+</script>
+</body>
+</html>
