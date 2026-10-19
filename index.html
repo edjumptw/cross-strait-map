@@ -158,6 +158,28 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .nrow b{font-family:var(--display);font-weight:400;font-size:16px}
 .nrow span{font-size:13px}
 
+/* OPC 專區 */
+.g-tw{--c:var(--sky)} .g-cn{--c:var(--gold)}
+.opc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:860px){.opc-grid{grid-template-columns:1fr}}
+.opc-card{background:#fff;border:var(--line);border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
+.opc-card-hd{background:var(--c);border-bottom:var(--line);padding:16px 18px}
+.opc-card-hd span{display:inline-block;font-size:11.5px;font-weight:900;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 10px;margin-bottom:6px}
+.opc-card-hd h3{font-weight:900;font-size:19px}
+.opc-list{display:grid;gap:0;padding:4px 18px 18px}
+.opc-list li{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:11px 0;border-bottom:2px dashed #e2dccb;font-size:13.5px;line-height:1.6}
+.opc-list li:last-child{border-bottom:0}
+.opc-list b{font-size:12.5px;font-weight:900;color:var(--muted)}
+.opc-caveat{margin:0 18px 18px;font-size:12.5px;line-height:1.6;padding:9px 11px;background:#ffe9e4;border-left:5px solid var(--coral);border-radius:4px}
+.city-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+@media (max-width:860px){.city-grid{grid-template-columns:1fr}}
+.city-card{background:#fff;border:var(--line);border-radius:16px;padding:16px 18px;box-shadow:5px 5px 0 var(--ink)}
+.city-card small{display:inline-block;font-family:var(--display);font-size:11px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:0 10px}
+.city-card h4{font-size:15.5px;font-weight:900;margin-top:8px}
+.city-card p{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.65}
+.city-card p.unknown{color:var(--coral);font-weight:700}
+.opc-note{max-width:900px;margin:24px auto 0;font-size:12.5px;color:var(--muted);text-align:center;border:2.5px dashed var(--ink);border-radius:14px;padding:12px 16px;background:var(--cream)}
+
 /* CTA banner */
 .ctaband{max-width:960px;margin:0 auto;background:#fff;border:var(--line);border-radius:26px;box-shadow:8px 8px 0 var(--ink);padding:30px;text-align:center}
 .ctaband h3{font-weight:900;font-size:22px;line-height:1.4}
@@ -207,6 +229,7 @@ footer b{color:#fff}
     <a class="pill" href="#diagnose">症狀診斷</a>
     <a class="pill" href="#cards">8 張卡</a>
     <a class="pill" href="#rules">鐵律</a>
+    <a class="pill" href="#opc">OPC 專區</a>
     <a class="pill pill--dark" href="#about">陳執董是誰</a>
   </nav>
 </header>
@@ -325,9 +348,64 @@ footer b{color:#fff}
   </div>
 </section>
 
+<section class="sec" id="opc">
+  <div class="wrap">
+    <span class="eyebrow">04 · OPC</span>
+    <h2 class="h-big">One Person Company</h2>
+    <p class="h-sub">一人公司：兩岸怎麼設、差在哪</p>
+    <p class="h-note">「一人公司」是⑥基礎設施零件裡最常被問到的題目——尤其現在一人公司／個人創業很流行。法規常變、兩岸不一樣，這裡先給方向，正式設立請務必找當地會計師/代辦核實最新規定。</p>
+
+    <div class="sec-body opc-grid">
+      <div class="opc-card g-tw">
+        <div class="opc-card-hd"><span>TAIWAN</span><h3>台灣 一人有限公司</h3></div>
+        <ul class="opc-list">
+          <li><b>法源</b><span>公司法下的「一人股東有限公司」</span></li>
+          <li><b>資本額</b><span>公司法已廢除最低資本額限制（特許行業如營造、金融、旅行業除外）</span></li>
+          <li><b>股東責任</b><span>有限責任——跟獨資商號的無限責任不同，這是選公司組織最大的理由</span></li>
+          <li><b>登記方式</b><span>經濟部商業發展署一站式商工登記，線上／臨櫃／郵寄皆可，名稱預查約 1～4 工作天</span></li>
+          <li><b>外國人設立</b><span>需經投審會核准，且至少一名董事須是台灣居民</span></li>
+        </ul>
+        <div class="opc-caveat"><b>注意</b>純線上電子化流程可能沒有公司大小章文件，建議部分文件上傳＋臨櫃補齊，避免後續簽約、銀行開戶卡關。</div>
+      </div>
+
+      <div class="opc-card g-cn">
+        <div class="opc-card-hd"><span>MAINLAND</span><h3>大陸 一人有限責任公司</h3></div>
+        <ul class="opc-list">
+          <li><b>法源</b><span>公司法（2024/7/1 新法施行，刪除一人公司專節，細節需以當地最新條文為準）</span></li>
+          <li><b>設立限制</b><span>一名自然人只能投資設立一家一人公司，該公司也不能再轉投資設立新的一人公司</span></li>
+          <li><b>股東責任</b><span>原則有限責任，但舉證責任倒置——不能自證公司財產與個人財產分離，就要對公司債務負連帶責任</span></li>
+          <li><b>決策機制</b><span>不設股東會，重大決定要用書面做成並留存，缺少內部制衡機制</span></li>
+          <li><b>審計</b><span>舊法明確要求每年由會計師事務所審計財報，新法下是否延續，須洽當地工商窗口確認</span></li>
+        </ul>
+        <div class="opc-caveat"><b>注意</b>規定常隨地區與新舊法交替調整，設立前務必找當地會計師/代辦核實註冊資本、審計等最新要求，不要照抄別的城市的做法。</div>
+      </div>
+    </div>
+
+    <div class="city-grid">
+      <div class="city-card">
+        <small>成都</small>
+        <h4>高新區「元創島 OPC 社區」</h4>
+        <p>2026 年 4 月啟用，定位「單人＋AI 即公司」，提供線上工商登記等一站式服務，適合一人公司型態的創業者直接落地。</p>
+      </div>
+      <div class="city-card">
+        <small>廈門</small>
+        <h4>自貿片區台青創業就業措施</h4>
+        <p>18～45 歲台籍人士適用；台資出資占比 51% 以上（獨資的一人公司基本符合）可按實繳資本 10% 領獎勵，單家最高 20 萬人民幣，需實際經營滿 6 個月。集美區另有台青租屋補貼。</p>
+      </div>
+      <div class="city-card">
+        <small>武漢</small>
+        <h4>建橋雲智在地窗口</h4>
+        <p class="unknown">目前查無公開的一人公司／台青專屬優惠資訊，建議直接洽武漢台辦或建橋雲智在地窗口，確認是否有最新方案。</p>
+      </div>
+    </div>
+
+    <p class="opc-note">法規、資本額、審計與補貼規定常依地區與新舊法交替調整，本區塊僅供方向參考，不構成法律或稅務建議。正式設立前請務必洽詢兩岸當地會計師、代書或台辦窗口，以最新官方公告為準。</p>
+  </div>
+</section>
+
 <section class="bg-rose">
   <div class="sec wrap">
-    <span class="eyebrow">04 · JOIN</span>
+    <span class="eyebrow">05 · JOIN</span>
     <h2 class="h-big">Community</h2>
     <p class="h-sub">診斷完，不用自己一個人想</p>
 
@@ -347,7 +425,7 @@ footer b{color:#fff}
 
 <section class="sec" id="about">
   <div class="wrap">
-    <span class="eyebrow">05 · WHO'S JUMP</span>
+    <span class="eyebrow">06 · WHO'S JUMP</span>
     <h2 class="h-big">Who's Jump?</h2>
     <p class="h-sub">這張地圖整理的，是誰的方法</p>
 
@@ -428,7 +506,7 @@ const PARTS = [
     pts:['公司設立/執照流程，提早找對的窗口辦理','資金進出合規，避免後面被追溯補稅或罰款','把「誰負責辦什麼」列清楚，不要事到臨頭才找人'],
     num:{v:'3地', l:'武漢、廈門、成都三地流程不完全相同，要分開確認'},
     trap:'以為一個地方的流程可以套用到另一個城市——行政細節每個地方都不一樣。',
-    use:['公司/執照卡關，不知道該找誰辦','同樣的流程換個城市又要重新搞懂一次']},
+    use:['公司/執照卡關，不知道該找誰辦','同樣的流程換個城市又要重新搞懂一次','想一個人開公司，不知道兩岸一人公司規定差在哪 → <a href="#opc">看 OPC 專區</a>']},
   {id:'c7', g:'g-scale', no:'⑦', en:'Cashflow', zh:'現金流', one:'東西賣出去不等於賺到錢，收不回來都是紙上富貴。',
     pts:['收付款機制先談清楚，不要用口頭默契帶過','帳期與匯損要算進報價，不是事後才發現虧了','設定付款節點，分階段收款降低單次風險'],
     num:{v:'3-4倍', l:'帳期拖越長，實際利潤被匯損和風險吃掉的幅度越大'},
