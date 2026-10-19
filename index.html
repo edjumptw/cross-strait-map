@@ -79,7 +79,7 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .map8 a:nth-child(4n){border-right:none}
 .map8 a:nth-child(n+5){border-bottom:none}
 .map8 a:hover{background:var(--c);transform:translateY(-2px)}
-.map8 .num{display:inline-block;width:26px;height:26px;border-radius:50%;background:var(--c);border:2px solid var(--ink);font-family:var(--display);font-size:12px;display:grid;place-items:center;margin:0 auto 6px}
+.map8 .num{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--c);border:2px solid var(--ink);font-family:var(--display);font-size:14px;display:grid;place-items:center;margin:0 auto 6px}
 .map8 b{display:block;font-size:14.5px;line-height:1.3}
 .flowline{padding:12px 18px;border-top:2px dashed var(--ink);font-size:12.5px;font-weight:700;text-align:center;background:var(--cream)}
 .hero__cta{text-align:center;margin-top:-20px;position:relative}
@@ -92,7 +92,8 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .wrap{max-width:1140px;margin:0 auto}
 .eyebrow{display:block;text-align:center;font-family:var(--display);font-size:10px;letter-spacing:.14em}
 .eyebrow::after{content:"";display:block;width:84px;height:2px;background:var(--ink);margin:6px auto 0}
-.h-big{text-align:center;font-family:var(--display);font-weight:400;font-size:clamp(30px,5.4vw,50px);line-height:1.15;margin-top:10px}
+.h-big{text-align:center;font-weight:900;font-size:clamp(26px,4.4vw,38px);line-height:1.25;margin-top:10px}
+.h-eng{text-align:center;font-family:var(--display);font-weight:400;font-size:13px;letter-spacing:.08em;color:var(--muted);margin-top:4px}
 .h-sub{text-align:center;font-weight:900;font-size:clamp(16px,2.2vw,19px);margin-top:6px}
 .h-note{text-align:center;font-size:13.5px;color:var(--muted);margin:6px auto 0;max-width:40em}
 .sec-body{margin-top:36px}
@@ -102,6 +103,7 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 
 /* diagnose */
 .diag{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.schip-hint{font-weight:900;font-size:14.5px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
 .schips{display:flex;flex-wrap:wrap;gap:8px}
 .schip{font-size:14px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 14px;text-align:left;transition:transform .15s}
 .schip:hover{transform:translateY(-2px)}
@@ -122,8 +124,8 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .card{background:#fff;border:var(--line);border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:90px}
 .card-hd{background:var(--c);border-bottom:var(--line);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
 .tag{align-self:flex-start;font-size:11.5px;font-weight:900;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 10px}
-.card h3 .en{display:block;font-family:var(--display);font-weight:400;font-size:19px;line-height:1.2}
-.card h3 .zh{display:block;font-weight:900;font-size:15px;margin-top:2px}
+.card h3 .zh{display:block;font-weight:900;font-size:21px;line-height:1.3}
+.card h3 .en{display:block;font-family:var(--display);font-weight:400;font-size:12.5px;letter-spacing:.04em;color:var(--muted);margin-top:3px}
 .card .one{margin:14px 18px 0;font-size:15px;font-weight:700;line-height:1.7}
 .card .pts{display:grid;gap:7px;font-size:14px;line-height:1.6;margin:12px 18px 0}
 .card .pts li{position:relative;padding-left:18px}
@@ -287,14 +289,14 @@ footer b{color:#fff}
       <div class="boxpanel">
         <div class="boxpanel-hd">生意零件箱｜一次只修一個 <span>定位 → 信任狀 → 引薦網 → 在地夥伴 → 試點 → 基礎設施 → 現金流 → 複製</span></div>
         <div class="map8">
-          <a class="g-pos" href="#c1"><span class="num">①</span><b>定位</b></a>
-          <a class="g-pos" href="#c2"><span class="num">②</span><b>信任狀</b></a>
-          <a class="g-bridge" href="#c3"><span class="num">③</span><b>引薦網</b></a>
-          <a class="g-bridge" href="#c4"><span class="num">④</span><b>在地夥伴</b></a>
-          <a class="g-pilot" href="#c5"><span class="num">⑤</span><b>試點驗證</b></a>
-          <a class="g-pilot" href="#c6"><span class="num">⑥</span><b>基礎設施</b></a>
-          <a class="g-scale" href="#c7"><span class="num">⑦</span><b>現金流</b></a>
-          <a class="g-scale" href="#c8"><span class="num">⑧</span><b>複製擴張</b></a>
+          <a class="g-pos" href="#c1"><span class="num">1</span><b>定位</b></a>
+          <a class="g-pos" href="#c2"><span class="num">2</span><b>信任狀</b></a>
+          <a class="g-bridge" href="#c3"><span class="num">3</span><b>引薦網</b></a>
+          <a class="g-bridge" href="#c4"><span class="num">4</span><b>在地夥伴</b></a>
+          <a class="g-pilot" href="#c5"><span class="num">5</span><b>試點驗證</b></a>
+          <a class="g-pilot" href="#c6"><span class="num">6</span><b>基礎設施</b></a>
+          <a class="g-scale" href="#c7"><span class="num">7</span><b>現金流</b></a>
+          <a class="g-scale" href="#c8"><span class="num">8</span><b>複製擴張</b></a>
         </div>
         <div class="flowline">定位 → 信任狀 → 引薦網 → 在地夥伴 → 試點驗證 → 基礎設施 → 現金流 → 複製擴張</div>
       </div>
@@ -307,12 +309,16 @@ footer b{color:#fff}
 <section class="sec" id="diagnose">
   <div class="wrap">
     <span class="eyebrow">01 · DIAGNOSE</span>
-    <h2 class="h-big">Diagnose</h2>
+    <h2 class="h-big">症狀診斷</h2>
+    <p class="h-eng">DIAGNOSE</p>
     <p class="h-sub">你的市場進入卡在哪個零件？</p>
     <p class="h-note">從你現在遇到的症狀開始，一路往下接：它對應哪個框架、屬於哪個環節。點一下就會跳到對應的卡片，你不用自己猜。</p>
 
     <div class="sec-body diag">
-      <div class="schips" id="schipList" role="group" aria-label="常見症狀"></div>
+      <div>
+        <p class="schip-hint">👇 點一個最像你現在的狀況</p>
+        <div class="schips" id="schipList" role="group" aria-label="常見症狀"></div>
+      </div>
 
       <div class="result" id="resultPanel">
         <span class="q">RESULT</span>
@@ -332,7 +338,8 @@ footer b{color:#fff}
 <section class="bg-cream">
   <div class="sec wrap" id="cards">
     <span class="eyebrow">02 · THE 8 PARTS</span>
-    <h2 class="h-big">The Map</h2>
+    <h2 class="h-big">框架地圖</h2>
+    <p class="h-eng">THE MAP</p>
     <p class="h-sub">8 個零件，排成一條線</p>
     <p class="h-note">每張卡只留一句話核心、幾個重點、一個關鍵數字，和一個常見地雷。點「遇到這些情況怎麼用」看實際對應的症狀。</p>
 
@@ -343,7 +350,8 @@ footer b{color:#fff}
 <section class="sec" id="rules">
   <div class="wrap">
     <span class="eyebrow">03 · RULES</span>
-    <h2 class="h-big">Rules</h2>
+    <h2 class="h-big">鐵律</h2>
+    <p class="h-eng">RULES</p>
     <p class="h-sub">跨框架鐵律與關鍵數字</p>
 
     <div class="sec-body two">
@@ -362,8 +370,9 @@ footer b{color:#fff}
 <section class="sec" id="opc">
   <div class="wrap">
     <span class="eyebrow">04 · OPC</span>
-    <h2 class="h-big">One Person Company</h2>
-    <p class="h-sub">一人公司：兩岸怎麼設、差在哪</p>
+    <h2 class="h-big">一人公司</h2>
+    <p class="h-eng">ONE PERSON COMPANY</p>
+    <p class="h-sub">兩岸怎麼設、差在哪</p>
     <p class="h-note">「一人公司」是⑥基礎設施零件裡最常被問到的題目——尤其現在一人公司／個人創業很流行。法規常變、兩岸不一樣，這裡先給方向，正式設立請務必找當地會計師/代辦核實最新規定。</p>
 
     <div class="sec-body opc-grid">
@@ -417,8 +426,9 @@ footer b{color:#fff}
 <section class="bg-cream">
   <div class="sec wrap">
     <span class="eyebrow">05 · PODCAST</span>
-    <h2 class="h-big">On the Pod</h2>
-    <p class="h-sub">延伸收聽：Podcast 裡的兩岸案例</p>
+    <h2 class="h-big">延伸收聽</h2>
+    <p class="h-eng">ON THE POD</p>
+    <p class="h-sub">Podcast 裡的兩岸案例</p>
     <p class="h-note">「陳執董的商業洞察」136 集大多是台灣中小企業主訪談——不是兩岸案例，但定位、信任狀、獲客這些瓶頸一再重複出現，是這張地圖的素材來源。下面這幾集是直接談兩岸市場與台青賽道的，可以搭配上面的框架一起聽。</p>
 
     <div class="sec-body pod-grid">
@@ -447,7 +457,8 @@ footer b{color:#fff}
 <section class="bg-rose">
   <div class="sec wrap">
     <span class="eyebrow">06 · JOIN</span>
-    <h2 class="h-big">Community</h2>
+    <h2 class="h-big">社群</h2>
+    <p class="h-eng">COMMUNITY</p>
     <p class="h-sub">診斷完，不用自己一個人想</p>
 
     <div class="sec-body ctaband">
@@ -467,7 +478,8 @@ footer b{color:#fff}
 <section class="sec" id="about">
   <div class="wrap">
     <span class="eyebrow">07 · WHO'S JUMP</span>
-    <h2 class="h-big">Who's Jump?</h2>
+    <h2 class="h-big">陳執董是誰</h2>
+    <p class="h-eng">WHO'S JUMP?</p>
     <p class="h-sub">這張地圖整理的，是誰的方法</p>
 
     <div class="sec-body whois__top">
@@ -602,7 +614,7 @@ function renderMap(){
   <article class="card ${p.g}" id="${p.id}">
     <div class="card-hd">
       <span class="tag">${p.no} PART</span>
-      <h3><span class="en">${p.en}</span><span class="zh">${p.zh}</span></h3>
+      <h3><span class="zh">${p.zh}</span><span class="en">${p.en}</span></h3>
     </div>
     <p class="one">${p.one}</p>
     <ul class="pts">${p.pts.map(x=>`<li>${x}</li>`).join('')}</ul>
@@ -615,7 +627,7 @@ function renderMap(){
 
   $('#schipList').innerHTML = SYMPTOMS.map((s,i)=>`<button class="schip" data-i="${i}" aria-pressed="false">${s.t}</button>`).join('');
 
-  $('#ruleList').innerHTML = RULES.map((r,i)=>`<li><span class="rn">${i+1}</span><div><b>${r[0]}</b><span>${r[1]}</span></div></li>`).join('');
+  $('#ruleList').innerHTML = RULES.map((r,i)=>`<li><span class="rn">${i+1}</span><b>${r[0]}</b></li>`).join('');
 
   $('#numList').innerHTML = NUMS.map(n=>`<li class="nrow"><b>${n[0]}</b><span>${n[1]}</span></li>`).join('');
 }
