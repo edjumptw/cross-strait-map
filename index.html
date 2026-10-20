@@ -196,6 +196,24 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .pod-card a{margin-top:auto;align-self:flex-start;font-size:12.5px;font-weight:900;text-decoration:none;border:2px solid var(--ink);border-radius:999px;padding:5px 13px;background:#fff}
 .pod-card a:hover{background:var(--cream)}
 
+.biz-cta{max-width:900px;margin:36px auto 0;background:#fff;border:var(--line);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:26px;text-align:center}
+.biz-cta h3{font-weight:900;font-size:19px}
+.biz-cta>p{font-size:14px;color:var(--muted);margin-top:8px;max-width:46em;margin-left:auto;margin-right:auto}
+.biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px;text-align:left}
+@media (max-width:720px){.biz-grid{grid-template-columns:1fr}}
+.biz-card{border:2px solid var(--ink);border-radius:16px;padding:16px 18px;background:var(--cream)}
+.biz-tag{display:inline-block;font-size:11.5px;font-weight:900;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:2px 10px}
+.biz-price{display:block;font-family:var(--display);font-weight:400;font-size:26px;color:var(--coral);margin-top:8px}
+.biz-price small{font-family:var(--body);font-weight:700;font-size:13px;color:var(--ink)}
+.biz-card ul{margin-top:10px;display:grid;gap:6px;font-size:13px;line-height:1.6}
+.biz-card li{position:relative;padding-left:16px}
+.biz-card li::before{content:"";position:absolute;left:1px;top:.55em;width:8px;height:8px;border-radius:50%;border:2px solid var(--ink);background:var(--gold)}
+.biz-ads{margin-top:18px;padding:12px 16px;border:2px dashed var(--ink);border-radius:14px;background:var(--cream);text-align:left}
+.biz-ads b{display:block;font-size:13.5px;margin-bottom:6px}
+.biz-ads p{font-size:12.5px;line-height:1.7;color:var(--muted)}
+.biz-note{font-size:12px;color:var(--muted);margin-top:14px}
+.biz-go{display:inline-block;margin-top:10px;font-weight:900;font-size:14.5px;text-decoration:none;background:var(--coral);color:#fff;border-radius:999px;padding:10px 22px;box-shadow:4px 4px 0 var(--ink)}
+
 /* CTA banner */
 .ctaband{max-width:960px;margin:0 auto;background:#fff;border:var(--line);border-radius:26px;box-shadow:8px 8px 0 var(--ink);padding:30px;text-align:center}
 .ctaband h3{font-weight:900;font-size:22px;line-height:1.4}
@@ -460,6 +478,40 @@ footer b{color:#fff}
         <span>Feat. 駐外記者 陳相如</span>
         <a href="https://www.youtube.com/watch?v=PxQnifQnnls" target="_blank" rel="noopener">在 YouTube 收聽 →</a>
       </div>
+    </div>
+
+    <div class="biz-cta">
+      <h3>想讓你的品牌上「陳執董的商業洞察」？</h3>
+      <p>把你的創業故事、轉型歷程或服務定位，整理成一集完整節目，曝光給關注兩岸市場與商務建橋的聽眾。</p>
+
+      <div class="biz-grid">
+        <div class="biz-card">
+          <span class="biz-tag">音訊專訪</span>
+          <b class="biz-price">NT$19,800<small>／集</small></b>
+          <ul>
+            <li>30 分鐘線上前訪＋最長 60 分鐘遠端錄音</li>
+            <li>25–40 分鐘完整節目，含封面與簡介</li>
+            <li>資訊欄附品牌連結，官網／社群可用 12 個月</li>
+          </ul>
+        </div>
+        <div class="biz-card">
+          <span class="biz-tag">影音專訪</span>
+          <b class="biz-price">NT$39,800<small>／集</small></b>
+          <ul>
+            <li>音訊專訪全部內容＋遠端影像錄製</li>
+            <li>完整版影音，含字幕</li>
+            <li>3 支 30–60 秒直式短影音，IG／抖音／小紅書可用</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="biz-ads">
+        <b>節目廣告／贊助</b>
+        <p>片頭口播 NT$3,000・中段口播 NT$5,000・片尾口播 NT$2,000・片頭＋片尾 NT$4,800／集・四集組合 NT$18,000・主題贊助 NT$12,000 起／集</p>
+      </div>
+
+      <p class="biz-note">以上價格為新臺幣、含稅，不含實體場地／差旅／攝影棚拍攝，合作內容會在節目中標示為品牌合作。</p>
+      <a class="biz-go" href="https://lin.ee/8H1uS3c" target="_blank" rel="noopener">LINE 洽詢，留言「品牌專訪」或「廣告合作」→</a>
     </div>
   </div>
 </section>
