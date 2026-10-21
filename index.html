@@ -120,8 +120,64 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .result .upsell{margin-top:18px;padding:14px 16px;border:2.5px solid var(--ink);border-radius:14px;background:var(--gold)}
 .result .upsell b{display:block;font-size:14.5px;margin-bottom:6px}
 .result .upsell p{font-size:13px;line-height:1.6;margin:0 0 12px}
-.result .upsell-go{background:var(--coral)}
-@media (max-width:860px){.diag{grid-template-columns:1fr}.result{position:static}}
+.result .upsell-go{background:var(--coral);border:0;cursor:pointer}
+.result .upsell .go+.go{margin-left:6px}
+.result .upsell .go-ghost{background:#fff;color:var(--ink);border:2px solid var(--ink);padding:6px 14px}
+.result .upsell .copied{font-size:12.5px;font-weight:700;margin:10px 0 0}
+.result .upsell .copied[hidden]{display:none}
+.result .upsell textarea{width:100%;margin-top:8px;font:inherit;font-size:13px;border:2px solid var(--ink);border-radius:10px;padding:8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 6px;text-align:left}
+.step{background:var(--cream);border:2px solid var(--ink);border-radius:16px;padding:14px 16px}
+.step small{font-family:var(--display);font-size:11px;letter-spacing:.08em;color:var(--coral)}
+.step b{display:block;font-size:15.5px;line-height:1.45;margin:4px 0 4px}
+.step p{font-size:13.5px;line-height:1.65;color:var(--muted);margin:0}
+.ctaband .go+.go{margin-left:8px}
+.ctaband .go-ghost{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.ctaband .go+.go{margin:10px 0 0}}
+.result{position:static;margin-top:26px}
+.result .rx{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:12px 14px;margin:0 0 16px;box-shadow:4px 4px 0 var(--ink)}
+.result .rx b.rx-tag{display:inline-block;font-size:12px;font-weight:900;background:var(--lc,var(--gold));border:2px solid var(--ink);border-radius:999px;padding:1px 10px;margin-bottom:6px}
+.result .rx h4{font-weight:900;font-size:17px;line-height:1.4;margin:2px 0 6px}
+.result .rx p{margin:0;font-size:14.5px;line-height:1.75}
+.result .rx small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+
+/* 診斷連線圖：症狀 → 零件 → 藥方 → 目標 */
+.dmap{position:relative;background:#fff;border:var(--line);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:18px 18px 22px;
+  background-image:radial-gradient(#e6e0d4 1px,transparent 1px);background-size:16px 16px}
+.dmap-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.dmap-lines path{fill:none}
+.dmap-lines .base{stroke:#cfc8bb;stroke-width:1.5;stroke-dasharray:4 5}
+.dmap-lines .hot{stroke:var(--ink);stroke-width:3.5;stroke-linecap:round}
+.dmap-banner{position:relative;z-index:1;text-align:center;font-weight:900;font-size:14px;background:var(--gold);border:2.5px solid var(--ink);border-radius:999px;padding:8px 16px;margin:0 auto 14px;max-width:44em}
+.drow{position:relative;z-index:1;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center;padding:14px 0;border-top:2px dashed #d9d2c5}
+.drow:first-of-type{border-top:0}
+.drow-lab{display:flex;flex-direction:column;align-items:center;gap:4px;font-weight:900;font-size:13px;text-align:center;line-height:1.3}
+.drow-lab i{display:grid;place-items:center;width:36px;height:36px;border:2.5px solid var(--ink);border-radius:50%;background:#fff;font-style:normal;font-family:var(--display);font-size:13px}
+.drow-lab small{font-size:10.5px;font-weight:700;color:var(--muted)}
+.drow-items{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.dnode{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:900;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:6px 12px;text-decoration:none;transition:opacity .2s,transform .15s,box-shadow .2s}
+.dnode small{font-weight:700;font-size:11px;color:var(--muted)}
+.dnode .cnt{display:grid;place-items:center;min-width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px}
+.dpart{background:var(--c)}
+.dlv{background:var(--lc);border-width:2.5px;padding:8px 14px}
+.dgoal{background:var(--ink);color:#fff;border-radius:14px;padding:10px 18px;font-size:14.5px;text-align:center}
+.dmap.picked .dnode,.dmap.picked .schip{opacity:.32}
+.dmap.picked .on{opacity:1;box-shadow:4px 4px 0 var(--ink);transform:translateY(-2px)}
+.dmap.picked .schip.on{background:var(--ink);color:#fff}
+.dmap.picked .dgoal{opacity:1}
+@media (max-width:640px){
+  .dmap{padding:14px 10px 18px}
+  .drow{grid-template-columns:1fr;gap:8px}
+  .drow-lab{flex-direction:row;justify-content:flex-start}
+  .drow-items{gap:6px}
+  .dpart small,.dlv small{display:none}
+  .dnode{font-size:13px;padding:5px 10px}
+  .dlv{padding:7px 12px}
+  .drow-lab i{width:28px;height:28px;font-size:11px}
+  .schip{font-size:13px;padding:6px 11px}
+}
+.card .rx{margin:12px 18px 0;font-size:13px;line-height:1.6;padding:9px 11px;background:var(--cream);border:2px solid var(--ink);border-radius:10px}
+.card .rx b{display:inline-block;font-size:11px;font-weight:900;background:var(--lc);border:2px solid var(--ink);border-radius:999px;padding:0 8px;margin-right:6px}
 
 /* 8 cards */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
@@ -164,27 +220,6 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .nrow b{font-family:var(--display);font-weight:400;font-size:16px}
 .nrow span{font-size:13px}
 
-/* OPC 專區 */
-.g-tw{--c:var(--sky)} .g-cn{--c:var(--gold)}
-.opc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-@media (max-width:860px){.opc-grid{grid-template-columns:1fr}}
-.opc-card{background:#fff;border:var(--line);border-radius:20px;box-shadow:6px 6px 0 var(--ink);overflow:hidden}
-.opc-card-hd{background:var(--c);border-bottom:var(--line);padding:16px 18px}
-.opc-card-hd span{display:inline-block;font-size:11.5px;font-weight:900;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 10px;margin-bottom:6px}
-.opc-card-hd h3{font-weight:900;font-size:19px}
-.opc-list{display:grid;gap:0;padding:4px 18px 18px}
-.opc-list li{display:grid;grid-template-columns:76px 1fr;gap:10px;padding:11px 0;border-bottom:2px dashed #e2dccb;font-size:13.5px;line-height:1.6}
-.opc-list li:last-child{border-bottom:0}
-.opc-list b{font-size:12.5px;font-weight:900;color:var(--muted)}
-.opc-caveat{margin:0 18px 18px;font-size:12.5px;line-height:1.6;padding:9px 11px;background:#ffe9e4;border-left:5px solid var(--coral);border-radius:4px}
-.city-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-@media (max-width:860px){.city-grid{grid-template-columns:1fr}}
-.city-card{background:#fff;border:var(--line);border-radius:16px;padding:16px 18px;box-shadow:5px 5px 0 var(--ink)}
-.city-card small{display:inline-block;font-family:var(--display);font-size:11px;background:var(--cream);border:2px solid var(--ink);border-radius:999px;padding:0 10px}
-.city-card h4{font-size:15.5px;font-weight:900;margin-top:8px}
-.city-card p{font-size:13px;color:var(--muted);margin-top:6px;line-height:1.65}
-.city-card p.unknown{color:var(--coral);font-weight:700}
-.opc-note{max-width:900px;margin:24px auto 0;font-size:12.5px;color:var(--muted);text-align:center;border:2.5px dashed var(--ink);border-radius:14px;padding:12px 16px;background:var(--cream)}
 
 /* podcast refs */
 .pod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -263,7 +298,6 @@ footer b{color:#fff}
     <a class="pill" href="#diagnose">症狀診斷</a>
     <a class="pill" href="#cards">8 張卡</a>
     <a class="pill" href="#rules">鐵律</a>
-    <a class="pill" href="#opc">OPC 專區</a>
     <a class="pill pill--dark" href="#about">陳執董是誰</a>
   </nav>
 </header>
@@ -334,29 +368,41 @@ footer b{color:#fff}
     <h2 class="h-big">症狀診斷</h2>
     <p class="h-eng">DIAGNOSE</p>
     <p class="h-sub">你的市場進入卡在哪個零件？</p>
-    <p class="h-note">從你現在遇到的症狀開始，一路往下接：它對應哪個框架、屬於哪個環節。點一下就會跳到對應的卡片，你不用自己猜。</p>
+    <p class="h-note">從你現在遇到的症狀開始，一路往下接：卡在哪個零件、BNC 會員可以給你什麼藥方、最後走到哪裡。點一下就會連起來，你不用自己猜。</p>
 
-    <div class="sec-body diag">
-      <div>
-        <p class="schip-hint">👇 點一個最像你現在的狀況</p>
-        <div class="schips" id="schipList" role="group" aria-label="常見症狀"></div>
+    <div class="sec-body">
+      <div class="dmap" id="dmap">
+        <svg class="dmap-lines" id="dmapLines" aria-hidden="true"></svg>
+        <p class="dmap-banner" id="dmapBanner">👇 點一個最像你現在的狀況，往下連到的零件和藥方會亮起來</p>
+        <div class="drow"><div class="drow-lab"><i>01</i>症狀</div><div class="drow-items schips" id="schipList" role="group" aria-label="常見症狀"></div></div>
+        <div class="drow"><div class="drow-lab"><i>02</i>零件<small>卡在哪</small></div><div class="drow-items" id="dParts"></div></div>
+        <div class="drow"><div class="drow-lab"><i>03</i>藥方<small>BNC 會員</small></div><div class="drow-items" id="dLevels"></div></div>
+        <div class="drow"><div class="drow-lab"><i>04</i>目標</div><div class="drow-items"><span class="dnode dgoal" id="dGoal">在大陸市場站穩：看得懂、找得到人、走得進去、做得下去</span></div></div>
       </div>
 
       <div class="result" id="resultPanel">
-        <span class="q">RESULT</span>
-        <h3 id="resTitle">先點一個症狀</h3>
+        <span class="q">SYMPTOM</span>
+        <h3 id="resTitle">先在上面點一個症狀</h3>
         <span class="b" id="resBadge">—</span>
-        <p class="f" id="resFacet">右邊會出現對應的零件、診斷與下一步動作。</p>
+        <p class="f" id="resFacet">這裡會出現你卡住的零件、今天就能做的一件事，以及成為 BNC 會員後對應的藥方。</p>
         <div class="act">
           <b>今天就做這件事</b>
-          <p id="resAction">點選左邊任一個你現在的症狀，開始診斷。</p>
+          <p id="resAction">點選上面任一個你現在的症狀，開始診斷。</p>
         </div>
-        <a class="go" id="resLink" href="#cards">翻到對應卡片 →</a>
+        <div class="rx" id="resRx" hidden>
+          <b class="rx-tag" id="rxTag">藥方</b>
+          <h4 id="rxHead"></h4>
+          <p id="rxBody"></p>
+          <small id="rxNote"></small>
+        </div>
+        <a class="go" id="resLink" href="#cards">翻到對應零件卡 →</a>
 
         <div class="upsell">
-          <b>想要不只是自己摸索？</b>
-          <p>如果你想直接對接系統化的引薦網與兩岸資源，而不是一個人慢慢試，可以了解 BNC 會員／創始元老方案——陳執董會親自跟你說明與報價。</p>
-          <a class="go upsell-go" href="https://lin.ee/8H1uS3c" target="_blank" rel="noopener">私訊了解 BNC 方案 →</a>
+          <b id="upHead">不想一個人慢慢摸索？</b>
+          <p id="upWhy">點一個症狀之後，可以把你的診斷結果直接傳給陳執董，他會看你的情況親自回覆。</p>
+          <button type="button" class="go upsell-go" id="sendBtn">複製結果，傳給執董 →</button><a class="go go-ghost" href="#next">之後會怎樣？</a>
+          <p class="copied" id="copied" hidden>已複製！LINE 開啟後，貼上送出就好。</p>
+          <textarea id="copyBox" rows="4" readonly hidden></textarea>
         </div>
       </div>
     </div>
@@ -395,65 +441,9 @@ footer b{color:#fff}
   </div>
 </section>
 
-<section class="sec" id="opc">
-  <div class="wrap">
-    <span class="eyebrow">04 · OPC</span>
-    <h2 class="h-big">一人公司</h2>
-    <p class="h-eng">ONE PERSON COMPANY</p>
-    <p class="h-sub">兩岸怎麼設、差在哪</p>
-    <p class="h-note">「一人公司」是⑥基礎設施零件裡最常被問到的題目——尤其現在一人公司／個人創業很流行。法規常變、兩岸不一樣，這裡先給方向，正式設立請務必找當地會計師/代辦核實最新規定。</p>
-
-    <div class="sec-body opc-grid">
-      <div class="opc-card g-tw">
-        <div class="opc-card-hd"><span>TAIWAN</span><h3>台灣 一人有限公司</h3></div>
-        <ul class="opc-list">
-          <li><b>法源</b><span>公司法下的「一人股東有限公司」</span></li>
-          <li><b>資本額</b><span>公司法已廢除最低資本額限制（特許行業如營造、金融、旅行業除外）</span></li>
-          <li><b>股東責任</b><span>有限責任——跟獨資商號的無限責任不同，這是選公司組織最大的理由</span></li>
-          <li><b>登記方式</b><span>經濟部商業發展署一站式商工登記，線上／臨櫃／郵寄皆可，名稱預查約 1～4 工作天</span></li>
-          <li><b>外國人設立</b><span>需經投審會核准，且至少一名董事須是台灣居民</span></li>
-        </ul>
-        <div class="opc-caveat"><b>注意</b>純線上電子化流程可能沒有公司大小章文件，建議部分文件上傳＋臨櫃補齊，避免後續簽約、銀行開戶卡關。</div>
-      </div>
-
-      <div class="opc-card g-cn">
-        <div class="opc-card-hd"><span>MAINLAND</span><h3>大陸 一人有限責任公司</h3></div>
-        <ul class="opc-list">
-          <li><b>法源</b><span>公司法（2024/7/1 新法施行，刪除一人公司專節，細節需以當地最新條文為準）</span></li>
-          <li><b>設立限制</b><span>一名自然人只能投資設立一家一人公司，該公司也不能再轉投資設立新的一人公司</span></li>
-          <li><b>股東責任</b><span>原則有限責任，但舉證責任倒置——不能自證公司財產與個人財產分離，就要對公司債務負連帶責任</span></li>
-          <li><b>決策機制</b><span>不設股東會，重大決定要用書面做成並留存，缺少內部制衡機制</span></li>
-          <li><b>審計</b><span>舊法明確要求每年由會計師事務所審計財報，新法下是否延續，須洽當地工商窗口確認</span></li>
-        </ul>
-        <div class="opc-caveat"><b>注意</b>規定常隨地區與新舊法交替調整，設立前務必找當地會計師/代辦核實註冊資本、審計等最新要求，不要照抄別的城市的做法。</div>
-      </div>
-    </div>
-
-    <div class="city-grid">
-      <div class="city-card">
-        <small>成都</small>
-        <h4>高新區「元創島 OPC 社區」</h4>
-        <p>2026 年 4 月啟用，定位「單人＋AI 即公司」，提供線上工商登記等一站式服務，適合一人公司型態的創業者直接落地。</p>
-      </div>
-      <div class="city-card">
-        <small>廈門</small>
-        <h4>自貿片區台青創業就業措施</h4>
-        <p>18～45 歲台籍人士適用；台資出資占比 51% 以上（獨資的一人公司基本符合）可按實繳資本 10% 領獎勵，單家最高 20 萬人民幣，需實際經營滿 6 個月。集美區另有台青租屋補貼。</p>
-      </div>
-      <div class="city-card">
-        <small>武漢</small>
-        <h4>建橋雲智在地窗口</h4>
-        <p class="unknown">目前查無公開的一人公司／台青專屬優惠資訊，建議直接洽武漢台辦或建橋雲智在地窗口，確認是否有最新方案。</p>
-      </div>
-    </div>
-
-    <p class="opc-note">法規、資本額、審計與補貼規定常依地區與新舊法交替調整，本區塊僅供方向參考，不構成法律或稅務建議。正式設立前請務必洽詢兩岸當地會計師、代書或台辦窗口，以最新官方公告為準。</p>
-  </div>
-</section>
-
 <section class="bg-cream">
   <div class="sec wrap">
-    <span class="eyebrow">05 · PODCAST</span>
+    <span class="eyebrow">04 · PODCAST</span>
     <h2 class="h-big">延伸收聽</h2>
     <p class="h-eng">ON THE POD</p>
     <p class="h-sub">Podcast 裡的兩岸案例</p>
@@ -487,7 +477,6 @@ footer b{color:#fff}
       <div class="biz-grid">
         <div class="biz-card">
           <span class="biz-tag">音訊專訪</span>
-          <b class="biz-price">NT$19,800<small>／集</small></b>
           <ul>
             <li>30 分鐘線上前訪＋最長 60 分鐘遠端錄音</li>
             <li>25–40 分鐘完整節目，含封面與簡介</li>
@@ -496,7 +485,6 @@ footer b{color:#fff}
         </div>
         <div class="biz-card">
           <span class="biz-tag">影音專訪</span>
-          <b class="biz-price">NT$39,800<small>／集</small></b>
           <ul>
             <li>音訊專訪全部內容＋遠端影像錄製</li>
             <li>完整版影音，含字幕</li>
@@ -507,24 +495,35 @@ footer b{color:#fff}
 
       <div class="biz-ads">
         <b>節目廣告／贊助</b>
-        <p>片頭口播 NT$3,000・中段口播 NT$5,000・片尾口播 NT$2,000・片頭＋片尾 NT$4,800／集・四集組合 NT$18,000・主題贊助 NT$12,000 起／集</p>
+        <p>片頭、中段、片尾口播，也可以整個主題由你的品牌贊助。</p>
       </div>
 
-      <p class="biz-note">以上價格為新臺幣、含稅，不含實體場地／差旅／攝影棚拍攝，合作內容會在節目中標示為品牌合作。</p>
-      <a class="biz-go" href="https://lin.ee/8H1uS3c" target="_blank" rel="noopener">LINE 洽詢，留言「品牌專訪」或「廣告合作」→</a>
+      <p class="biz-note">合作方式與檔期依品牌需求安排，合作內容會在節目中標示為品牌合作。</p>
+      <a class="biz-go" href="https://lin.ee/8H1uS3c" target="_blank" rel="noopener">LINE 留言「品牌專訪」或「廣告合作」，索取合作說明 →</a>
     </div>
   </div>
 </section>
 
 <section class="bg-rose">
-  <div class="sec wrap">
-    <span class="eyebrow">06 · JOIN</span>
-    <h2 class="h-big">社群</h2>
-    <p class="h-eng">COMMUNITY</p>
+  <div class="sec wrap" id="next">
+    <span class="eyebrow">05 · NEXT STEP</span>
+    <h2 class="h-big">診斷完，下一步</h2>
+    <p class="h-eng">WHAT HAPPENS NEXT</p>
     <p class="h-sub">診斷完，不用自己一個人想</p>
 
     <div class="sec-body ctaband">
-      <h3>加入「陳執董｜商業社群」LINE 群</h3>
+      <h3>把結果傳給陳執董</h3>
+      <p>陳執董本人會看你的情況，再決定怎麼幫你最有用。</p>
+      <div class="steps">
+        <div class="step"><small>STEP 1</small><b>傳你的診斷結果</b><p>在上面的診斷點一個症狀，按「複製結果，傳給執董」，貼到 LINE 送出。</p></div>
+        <div class="step"><small>STEP 2</small><b>執董親自回覆</b><p>他會先問清楚你的生意和卡住的地方，需要的話再約時間線上聊。</p></div>
+        <div class="step"><small>STEP 3</small><b>適合，才往下談</b><p>如果 BNC 建橋商務社群幫得上忙，他才會介紹給你；不適合，也會告訴你現在可以先做什麼。</p></div>
+      </div>
+      <a class="go" href="#diagnose">回到診斷，先點一個症狀 ↑</a>
+    </div>
+
+    <div class="sec-body ctaband">
+      <h3>還沒準備好？先加入「陳執董｜商業社群」LINE 群</h3>
       <p>兩岸商務討論、經驗分享，把你現在卡住的零件丟進來，一起找下一步。</p>
       <div class="perks">
         <span class="perk">兩岸市場實戰案例</span>
@@ -539,7 +538,7 @@ footer b{color:#fff}
 
 <section class="sec" id="about">
   <div class="wrap">
-    <span class="eyebrow">07 · WHO'S JUMP</span>
+    <span class="eyebrow">06 · WHO'S JUMP</span>
     <h2 class="h-big">陳執董是誰</h2>
     <p class="h-eng">WHO'S JUMP?</p>
     <p class="h-sub">這張地圖整理的，是誰的方法</p>
@@ -623,7 +622,7 @@ const PARTS = [
     pts:['公司設立/執照流程，提早找對的窗口辦理','資金進出合規，避免後面被追溯補稅或罰款','把「誰負責辦什麼」列清楚，不要事到臨頭才找人'],
     num:{v:'3地', l:'武漢、廈門、成都三地流程不完全相同，要分開確認'},
     trap:'以為一個地方的流程可以套用到另一個城市——行政細節每個地方都不一樣。',
-    use:['公司/執照卡關，不知道該找誰辦','同樣的流程換個城市又要重新搞懂一次','想一個人開公司，不知道兩岸一人公司規定差在哪 → <a href="#opc">看 OPC 專區</a>']},
+    use:['公司/執照卡關，不知道該找誰辦','同樣的流程換個城市又要重新搞懂一次','想一個人開公司，不知道兩岸一人公司規定差在哪']},
   {id:'c7', g:'g-scale', no:'⑦', en:'Cashflow', zh:'現金流', one:'東西賣出去不等於賺到錢，收不回來都是紙上富貴。',
     pts:['收付款機制先談清楚，不要用口頭默契帶過','帳期與匯損要算進報價，不是事後才發現虧了','設定付款節點，分階段收款降低單次風險'],
     num:{v:'3-4倍', l:'帳期拖越長，實際利潤被匯損和風險吃掉的幅度越大'},
@@ -648,9 +647,41 @@ const SYMPTOMS = [
   {t:'去考察過很多次，但一直沒有真的開始', to:'c5'},
   {t:'小規模測試都還沒做，就想直接大舉進入', to:'c5'},
   {t:'公司/執照卡關，不知道該找誰辦', to:'c6'},
+  {t:'想一個人開公司，不知道兩岸規定差在哪', to:'c6'},
   {t:'東西賣出去了，錢卻收不回來/拖很久', to:'c7'},
   {t:'一個城市做起來了，換下個城市又從零開始', to:'c8'},
 ];
+
+// 診斷結果下方：每個零件一句「這一步通常卡在哪」，再邀請把結果傳給執董
+const NEXT = {
+  c1:'「一句話講清楚你是誰」最難的地方，是自己看不見自己。多數老闆需要一個在外面的人，幫他聽一次。',
+  c2:'背書要被「對的人」看見才算數。你手上的可能已經夠，只是還沒放在對方看得到的地方。',
+  c3:'引薦靠的是固定出現的關係，不是名片數量。這一段一個人很難做，需要一群會幫你介紹的人。',
+  c4:'對的窗口通常不是找來的，是被可信的人介紹來的。',
+  c5:'第一次試點怎麼設停損、該去哪裡看，問過走過的人，可以省下好幾趟冤枉路。',
+  c6:'公司、執照、資金進出，每個城市都不一樣，最好先問實際辦過的人。',
+  c7:'報價、帳期、收款節點，最好在簽約前就有人幫你看過一次。',
+  c8:'第二個城市不用從零開始，前提是第一個城市的做法有被整理下來。',
+};
+// 藥方：每個零件對應的 BNC 會員等級與該級給的權益（2026-10-20 定案內容，對外不寫價格）
+const LEVELS = [
+  {id:'l1', name:'初階會員', tag:'搞懂大陸市場', c:'var(--sky)'},
+  {id:'l2', name:'中級會員', tag:'在台灣找到合作夥伴', c:'var(--rose)'},
+  {id:'l3', name:'高級會員', tag:'實際踏進大陸市場', c:'var(--gold)'},
+  {id:'l4', name:'創始會員', tag:'向過來人取經', c:'var(--teal)'},
+];
+const RX = {
+  c1:{lv:'l1', t:'入會時陳執董跟你一對一做 30 分鐘需求盤點，再用「30 秒介紹模板」和「跨境需求卡」，把你是誰、要找誰寫成一句話；每月一場大陸市場資訊分享會，幫你看懂對岸在發生什麼。'},
+  c2:{lv:'l2', t:'每週四線上例會固定露臉、輪流上台做六段式建橋路演，再加上 Podcast「陳執董的商業洞察」片頭片尾替你曝光。信任是被反覆看見累積出來的。'},
+  c3:{lv:'l2', t:'每週四線上例會：30 秒介紹、六段式建橋路演、會員互相引薦。固定出現，大家才記得你在找什麼，引薦才會發生。'},
+  c4:{lv:'l3', t:'團體交流團不限次數，再加一次為你量身安排的定製團，帶你去見對的在地窗口；每季一次跨境勘測會談，幫你判斷這個人對不對。'},
+  c5:{lv:'l3', t:'每季一次跨境勘測會談，一年共 4 小時，最後交付一頁「大陸進入計畫」；交流團和定製團，就是你的小規模試點。'},
+  c6:{lv:'l4', t:'每月一次、每次 2 小時的一對一顧問，直接請益陳執董在武漢開公司、進駐孵化空間與台青補貼申請的經驗；專屬服務群裡有問題隨時問，由團隊處理。'},
+  c7:{lv:'l4', t:'每月 2 小時一對一顧問，陪你把報價、帳期、收款節點逐一看過；專屬服務群隨時處理你的狀況。'},
+  c8:{lv:'l4', t:'陳執董親自為你引薦需要的人脈與資源，把第一個城市的做法整理成可以複製的方法；未來還可取得分會經營權與經營紅利（條件另訂）。'},
+};
+const LINE_URL = 'https://lin.ee/8H1uS3c';
+let picked = null;
 
 const RULES = [
   ['先建信任狀，才有資格談合作','沒有背書，關係再多也只是點頭之交'],
@@ -683,12 +714,15 @@ function renderMap(){
     <ul class="pts">${p.pts.map(x=>`<li>${x}</li>`).join('')}</ul>
     <div class="num"><b>${p.num.v}</b><span>${p.num.l}</span></div>
     <div class="trap"><b>地雷</b>${p.trap}</div>
+    ${(()=>{const L=LEVELS.find(l=>l.id===RX[p.id].lv);return `<div class="rx" style="--lc:${L.c}"><b>藥方</b>BNC ${L.name}・${L.tag}</div>`})()}
     <details><summary>遇到這些情況怎麼用</summary>
       <ul>${p.use.map(x=>`<li>${x}</li>`).join('')}</ul>
     </details>
   </article>`).join('');
 
-  $('#schipList').innerHTML = SYMPTOMS.map((s,i)=>`<button class="schip" data-i="${i}" aria-pressed="false">${s.t}</button>`).join('');
+  $('#schipList').innerHTML = SYMPTOMS.map((s,i)=>`<button class="schip" data-i="${i}" data-to="${s.to}" aria-pressed="false">${s.t}</button>`).join('');
+  $('#dParts').innerHTML = PARTS.map(p=>`<a class="dnode dpart ${p.g}" id="d-${p.id}" href="#${p.id}">${p.no} ${p.zh}<small>${p.en}</small><span class="cnt">${SYMPTOMS.filter(s=>s.to===p.id).length}</span></a>`).join('');
+  $('#dLevels').innerHTML = LEVELS.map(l=>`<span class="dnode dlv" id="d-${l.id}" style="--lc:${l.c}">${l.name}<small>${l.tag}</small></span>`).join('');
 
   $('#ruleList').innerHTML = RULES.map((r,i)=>`<li><span class="rn">${i+1}</span><b>${r[0]}</b></li>`).join('');
 
@@ -696,19 +730,83 @@ function renderMap(){
 }
 renderMap();
 
+// 連線：用元素實際位置畫曲線，排版怎麼換行都接得上
+const NS = 'http://www.w3.org/2000/svg';
+function anchor(el, box, side){
+  const r = el.getBoundingClientRect();
+  return {x: r.left + r.width/2 - box.left, y: (side==='top' ? r.top : r.bottom) - box.top};
+}
+function curve(a, b, cls){
+  const my = (a.y + b.y) / 2;
+  const path = document.createElementNS(NS, 'path');
+  path.setAttribute('d', `M${a.x},${a.y} C${a.x},${my} ${b.x},${my} ${b.x},${b.y}`);
+  path.setAttribute('class', cls);
+  return path;
+}
+function drawLines(){
+  const svg = $('#dmapLines'), box = $('#dmap').getBoundingClientRect();
+  svg.setAttribute('viewBox', `0 0 ${box.width} ${box.height}`);
+  svg.innerHTML = '';
+  const goal = $('#dGoal');
+  // 底線：每個零件到它的藥方、每個藥方到目標
+  PARTS.forEach(p=>{
+    svg.appendChild(curve(anchor($('#d-'+p.id),box,'bottom'), anchor($('#d-'+RX[p.id].lv),box,'top'), 'base'));
+  });
+  LEVELS.forEach(l=> svg.appendChild(curve(anchor($('#d-'+l.id),box,'bottom'), anchor(goal,box,'top'), 'base')));
+  if (!picked) return;
+  const chip = $(`.schip[data-i="${picked.i}"]`), part = $('#d-'+picked.part.id), lv = $('#d-'+RX[picked.part.id].lv);
+  [[chip,part],[part,lv],[lv,goal]].forEach(([a,b])=> svg.appendChild(curve(anchor(a,box,'bottom'), anchor(b,box,'top'), 'hot')));
+}
+addEventListener('resize', ()=> requestAnimationFrame(drawLines));
+addEventListener('load', drawLines);
+if (document.fonts) document.fonts.ready.then(drawLines);
+drawLines();
+
 $$('.schip').forEach(btn=>{
   btn.addEventListener('click', ()=>{
-    $$('.schip').forEach(b=>b.setAttribute('aria-pressed','false'));
-    btn.setAttribute('aria-pressed','true');
-    const s = SYMPTOMS[+btn.dataset.i];
+    $$('.schip').forEach(b=>{ b.setAttribute('aria-pressed','false'); b.classList.remove('on'); });
+    $$('.dnode').forEach(n=>n.classList.remove('on'));
+    btn.setAttribute('aria-pressed','true'); btn.classList.add('on');
+    const i = +btn.dataset.i, s = SYMPTOMS[i];
     const part = PARTS.find(p=>p.id===s.to);
-    $('#resTitle').textContent = part.zh + '｜' + part.en;
-    $('#resBadge').textContent = s.to.toUpperCase() + ' · ' + part.zh;
+    const L = LEVELS.find(l=>l.id===RX[part.id].lv);
+    $('#d-'+part.id).classList.add('on'); $('#d-'+L.id).classList.add('on'); $('#dGoal').classList.add('on');
+    $('#dmap').classList.add('picked');
+    $('#dmapBanner').textContent = '「' + s.t + '」往下連到的零件和藥方都亮起來了，往下看怎麼做 ↓';
+
+    $('#resTitle').textContent = s.t;
+    $('#resBadge').textContent = part.no + ' ' + part.zh + '｜' + part.en;
     $('#resBadge').style.setProperty('--c', `var(--${part.g.split('-')[1]==='pos'?'sky':part.g.split('-')[1]==='bridge'?'rose':part.g.split('-')[1]==='pilot'?'gold':'teal'})`);
-    $('#resFacet').textContent = part.one;
+    $('#resFacet').textContent = part.one + ' ' + NEXT[s.to];
     $('#resAction').textContent = '先處理「' + part.zh + '」：' + part.pts[0];
+    $('#resRx').hidden = false;
+    $('#resRx').style.setProperty('--lc', L.c);
+    $('#rxTag').textContent = '藥方｜BNC ' + L.name;
+    $('#rxHead').textContent = '成為' + L.name + '：' + L.tag;
+    $('#rxBody').textContent = RX[part.id].t;
+    $('#rxNote').textContent = '每一級都包含前一級的全部內容。適不適合、怎麼開始，陳執董會先聽你的狀況再建議。';
     $('#resLink').href = '#' + s.to;
+    picked = {i, s, part, L};
+    $('#upHead').textContent = '想知道這帖藥適不適合你？';
+    $('#upWhy').textContent = '把這個診斷結果傳給陳執董，他會看你的情況親自回覆，告訴你從哪裡開始最有用。';
+    $('#copied').hidden = true; $('#copyBox').hidden = true;
+    drawLines();
+    if (innerWidth < 860) setTimeout(()=> $('#resultPanel').scrollIntoView({behavior:'smooth', block:'start'}), 450);
   });
+});
+
+$('#sendBtn').addEventListener('click', ()=>{
+  if (!picked){
+    $('#upWhy').textContent = '先在上面點一個最像你的症狀，結果才會帶進訊息裡。';
+    $('#schipList').scrollIntoView({behavior:'smooth', block:'center'});
+    return;
+  }
+  const msg = '執董您好，我做了「兩岸市場進入地圖」診斷。\n我的狀況：' + picked.s.t + '\n卡在的零件：' + picked.part.zh + '\n地圖建議的藥方：BNC ' + picked.L.name + '（' + picked.L.tag + '）\n想請教我適不適合、下一步可以怎麼走。';
+  // 先開始寫入剪貼簿，再在同一次點擊裡開 LINE（避免被擋彈出視窗）
+  const done = ()=>{ $('#copied').textContent = '已複製！在 LINE 貼上送出就好。'; $('#copied').hidden = false; };
+  const manual = ()=>{ const t=$('#copyBox'); t.value = msg; t.hidden = false; t.select(); $('#copied').textContent = '請複製上面這段文字，貼到 LINE 傳給執董。'; $('#copied').hidden = false; };
+  if (navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(msg).then(done, manual); } else { manual(); }
+  window.open(LINE_URL, '_blank', 'noopener');
 });
 
 addEventListener('scroll', ()=>{
