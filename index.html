@@ -116,11 +116,12 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .result .act{background:var(--cream);border:2.5px dashed var(--ink);border-radius:14px;padding:12px 14px;margin:0 0 16px}
 .result .act b{display:inline-block;font-size:12px;font-weight:900;background:var(--gold);border:2px solid var(--ink);border-radius:999px;padding:1px 10px;margin-bottom:6px}
 .result .act p{margin:0;font-size:14.5px;line-height:1.7}
-.result a.go{display:inline-block;font-weight:900;font-size:13.5px;text-decoration:none;background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px}
+.result button.go{font-family:inherit;cursor:pointer;line-height:inherit}
+.result a.go,.result button.go{display:inline-block;font-weight:900;font-size:13.5px;text-decoration:none;background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px}
 .result .upsell{margin-top:18px;padding:14px 16px;border:2.5px solid var(--ink);border-radius:14px;background:var(--gold)}
 .result .upsell b{display:block;font-size:14.5px;margin-bottom:6px}
 .result .upsell p{font-size:13px;line-height:1.6;margin:0 0 12px}
-.result .upsell-go{background:var(--coral);border:0;cursor:pointer}
+.result .upsell .upsell-go{background:var(--coral);border:0;cursor:pointer}
 .result .upsell .go+.go{margin-left:6px}
 .result .upsell .go-ghost{background:#fff;color:var(--ink);border:2px solid var(--ink);padding:6px 14px}
 .result .upsell .copied{font-size:12.5px;font-weight:700;margin:10px 0 0}
@@ -140,6 +141,16 @@ header.top{background:var(--sky);display:grid;grid-template-columns:1fr auto 1fr
 .result .rx h4{font-weight:900;font-size:17px;line-height:1.4;margin:2px 0 6px}
 .result .rx p{margin:0;font-size:14.5px;line-height:1.75}
 .result .rx small{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.result .listen{background:var(--cream);border:2.5px solid var(--ink);border-radius:14px;padding:12px 14px;margin:0 0 16px}
+.result .listen b.l-tag{display:inline-block;font-size:12px;font-weight:900;background:#fff;border:2px solid var(--ink);border-radius:999px;padding:1px 10px;margin-bottom:8px}
+.result .listen ul{display:grid;gap:8px}
+.result .listen a{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;text-decoration:none;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:9px 12px;transition:transform .15s}
+.result .listen a:hover{transform:translateY(-2px)}
+.result .listen .ep{font-family:var(--display);font-size:11px;background:var(--ink);color:#fff;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.result .listen .t{font-weight:900;font-size:14px;line-height:1.45}
+.result .listen .w{display:block;font-weight:500;font-size:12.5px;color:var(--muted);margin-top:2px}
+.result .listen .play{font-weight:900;font-size:12.5px;white-space:nowrap}
+@media (max-width:640px){.result .listen a{grid-template-columns:auto 1fr}.result .listen .play{display:none}}
 
 /* 診斷連線圖：症狀 → 零件 → 藥方 → 目標 */
 .dmap{position:relative;background:#fff;border:var(--line);border-radius:22px;box-shadow:8px 8px 0 var(--ink);padding:18px 18px 22px;
@@ -394,6 +405,10 @@ footer b{color:#fff}
           <h4 id="rxHead"></h4>
           <p id="rxBody"></p>
           <small id="rxNote"></small>
+        </div>
+        <div class="listen" id="resPod" hidden>
+          <b class="l-tag">🎧 先聽這兩集｜陳執董的商業洞察</b>
+          <ul id="podList"></ul>
         </div>
         <a class="go" id="resLink" href="#cards">翻到對應零件卡 →</a>
 
@@ -680,6 +695,17 @@ const RX = {
   c7:{lv:'l4', t:'每月 2 小時一對一顧問，陪你把報價、帳期、收款節點逐一看過；專屬服務群隨時處理你的狀況。'},
   c8:{lv:'l4', t:'陳執董親自為你引薦需要的人脈與資源，把第一個城市的做法整理成可以複製的方法；未來還可取得分會經營權與經營紅利（條件另訂）。'},
 };
+// 延伸收聽：每個零件挑兩集「陳執董的商業洞察」（2026-10-21 從 RSS 136 集挑選）
+const POD = {
+  c1:[{"ep": "EP02", "t": "我們只跟高品質的客戶打交道", "w": "定位先想清楚「不做誰」，客人才記得你做什麼。", "u": "https://edjumptw.firstory.cc/episodes/ckfyvfp86ad4b0800mwn08ud6"}, {"ep": "EP104", "t": "拿麥克風會抖：如何變成演講高手", "w": "自我介紹講不清楚，多半是還沒練過怎麼講。", "u": "https://edjumptw.firstory.cc/episodes/clxcp5xvp0a5d01xvb1ziaqlx"}],
+  c2:[{"ep": "EP112", "t": "真實對話如何提升 Podcast 影響力", "w": "信任狀不只是證照，是被反覆聽見的真實故事。", "u": "https://edjumptw.firstory.cc/episodes/cm122zehf00af01o57bqt7xl8"}, {"ep": "EP87", "t": "如何透過社交媒體和人脈搭建客戶基礎", "w": "一位自由教練怎麼讓陌生人先信任他。", "u": "https://edjumptw.firstory.cc/episodes/cltcj73ns00ut01uid2se0dy3"}],
+  c3:[{"ep": "EP10", "t": "BNI 廣州執行董事曾航 COCO", "w": "在大陸經營引薦組織的第一手經驗。", "u": "https://edjumptw.firstory.cc/episodes/ckki3e4ch25g00845c4i6vo3q"}, {"ep": "EP05", "t": "不喜歡交際，你更需要商會", "w": "引薦網不靠個性外向，靠有結構的系統。", "u": "https://edjumptw.firstory.cc/episodes/ckgnvb5toxoxc0885wtwpk764"}],
+  c4:[{"ep": "EP117", "t": "為何山東成為台灣青年的新賽道？", "w": "魯台青年創客中心陳玟婷，在地窗口怎麼幫台青落地。", "u": "https://edjumptw.firstory.cc/episodes/cmm4qta6o0ge001xha6lse5vf"}, {"ep": "EP113", "t": "台灣記者的中國商業探索", "w": "在大陸 13 年的台灣記者，聊兩岸文化與溝通落差。", "u": "https://edjumptw.firstory.cc/episodes/cm1sgjln3001e01umggws5dy4"}],
+  c5:[{"ep": "EP12", "t": "做生意要多看看多聽聽，不要太冒進", "w": "JCI 前總會長郭宸嘉在湖南長沙做市場的經驗。", "u": "https://edjumptw.firstory.cc/episodes/ckl021ydfh2ea0898ma213z1g"}, {"ep": "EP103", "t": "從藥師變成炸雞店老闆：差點開不成", "w": "第一次開店差點翻船，怎麼抓對時機。", "u": "https://edjumptw.firstory.cc/episodes/clx4k6noh011r01xl2b6i5xt7"}],
+  c6:[{"ep": "EP116", "t": "台青科眾創孵化空間王天山", "w": "孵化空間怎麼看台灣人跨區域創業。", "u": "https://edjumptw.firstory.cc/episodes/cmkd61gfk002q01xw7pn1e79f"}, {"ep": "EP56", "t": "突破貿易障礙：報關行關鍵服務整合", "w": "執照、關務這些基礎設施，該找誰處理。", "u": "https://edjumptw.firstory.cc/episodes/cliifbi9y016t01ux4tpt0quf"}],
+  c7:[{"ep": "EP8", "t": "金融財務工具如何使用", "w": "資產保全、離岸財務規劃，也聊到在大陸行走的觀察。", "u": "https://edjumptw.firstory.cc/episodes/clao0sbqd00cb01v7eue1evt8"}, {"ep": "EP92", "t": "電商創業者林明頴的挑戰與困難", "w": "創業初期的財務壓力怎麼撐過去。", "u": "https://edjumptw.firstory.cc/episodes/club46rjh004001v3dqlzhz9k"}],
+  c8:[{"ep": "EP35", "t": "每年成長 50% 營業額的策略", "w": "築間餐飲集團策略長，連鎖展店怎麼複製。", "u": "https://edjumptw.firstory.cc/episodes/clhed0wrz0kui01tb5xhfg3f3"}, {"ep": "EP79", "t": "跨 30 個國家的商業帝國", "w": "馬來西亞風水大師黃偉倫，一個方法帶到 30 國。", "u": "https://edjumptw.firstory.cc/episodes/clm3e555u00g201xa0ponazoj"}],
+};
 const LINE_URL = 'https://lin.ee/8H1uS3c';
 let picked = null;
 
@@ -786,6 +812,8 @@ $$('.schip').forEach(btn=>{
     $('#rxBody').textContent = RX[part.id].t;
     $('#rxNote').textContent = '每一級都包含前一級的全部內容。適不適合、怎麼開始，陳執董會先聽你的狀況再建議。';
     $('#resLink').href = '#' + s.to;
+    $('#podList').innerHTML = POD[part.id].map(x=>`<li><a href="${x.u}" target="_blank" rel="noopener"><span class="ep">${x.ep}</span><span class="t">${x.t}<span class="w">${x.w}</span></span><span class="play">收聽 →</span></a></li>`).join('');
+    $('#resPod').hidden = false;
     picked = {i, s, part, L};
     $('#upHead').textContent = '想知道這帖藥適不適合你？';
     $('#upWhy').textContent = '把這個診斷結果傳給陳執董，他會看你的情況親自回覆，告訴你從哪裡開始最有用。';
